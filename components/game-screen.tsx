@@ -9,7 +9,7 @@ import { getWordsWithAnyLetter, generateWordOptions, getWordPool, wordContainsLe
 
 interface GameScreenProps {
   settings: {
-    category: string
+    category: string | string[]
     roundCount: number
     selectedLetters: string[]
     isUppercase: boolean

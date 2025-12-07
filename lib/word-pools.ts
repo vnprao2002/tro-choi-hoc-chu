@@ -188,6 +188,24 @@ export const WORD_POOLS =
     { "text": "thu hoạch", "image": "/images/farm/thu-hoach.jpg" }
   ],
 
+  "military": [
+  { "text": "bộ đội", "image": "/images/military/bo-doi.jpg" },
+  { "text": "chiến sĩ", "image": "/images/military/chien-si.jpg" },
+  { "text": "quân phục", "image": "/images/military/quan-phuc.jpg" },
+  { "text": "mũ cối", "image": "/images/military/mu-coi.jpg" },
+  { "text": "giày bộ đội", "image": "/images/military/giay-bo-doi.jpg" },
+  { "text": "ba lô", "image": "/images/military/ba-lo.jpg" },
+  { "text": "doanh trại", "image": "/images/military/doanh-trai.jpg" },
+  { "text": "cờ đỏ", "image": "/images/military/co-do.jpg" },
+  { "text": "sao vàng", "image": "/images/military/sao-vang.jpg" },
+  { "text": "đồng phục", "image": "/images/military/dong-phuc.jpg" },
+  { "text": "xe quân đội", "image": "/images/military/xe-quan-doi.jpg" },
+  { "text": "ba-ri-e quân đội", "image": "/images/military/barie.jpg" },
+  { "text": "lều trại", "image": "/images/military/leu-trai.jpg" },
+  { "text": "loa phóng thanh", "image": "/images/military/loa.jpg" },
+  { "text": "sân chào cờ", "image": "/images/military/san-chao-co.jpg" }
+],
+
   "fruits": [
     { "text": "táo", "image": "/images/food/tap.jpg" },
     { "text": "chuối", "image": "/images/food/chuoi.jpg" },
@@ -288,7 +306,25 @@ export const WORD_POOLS =
   ]
 }
 
-export function getWordPool(category: string): Word[] {
+export function getWordPool(category: string | string[]): Word[] {
+  // Nếu là array, trộn các chủ đề
+  if (Array.isArray(category)) {
+    const allWords: Word[] = []
+    category.forEach((cat) => {
+      if (cat === "mixed") {
+        // Trộn tất cả các chủ đề
+        Object.values(WORD_POOLS).forEach((words) => {
+          allWords.push(...words)
+        })
+      } else {
+        const words = WORD_POOLS[cat as keyof typeof WORD_POOLS] || []
+        allWords.push(...words)
+      }
+    })
+    return allWords
+  }
+  
+  // Xử lý string như trước
   if (category === "mixed") {
     // Trộn tất cả các chủ đề
     const allWords: Word[] = []
@@ -415,13 +451,13 @@ export function getBaseVietnameseLetter(): string[] {
   ]
 }
 
-export function getWordsWithAnyLetter(category: string, letters: string[]): Word[] {
+export function getWordsWithAnyLetter(category: string | string[], letters: string[]): Word[] {
   const pool = getWordPool(category)
   return pool.filter((word) => letters.some((letter) => word.text.includes(letter)))
 }
 
 // Get words with a specific letter
-export function getWordsWithLetter(category: string, letter: string): Word[] {
+export function getWordsWithLetter(category: string | string[], letter: string): Word[] {
   const pool = getWordPool(category)
   return pool.filter((word) => word.text.includes(letter))
 }

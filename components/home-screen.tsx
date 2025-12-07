@@ -12,14 +12,14 @@ interface HomeScreenProps {
 const STORAGE_KEY = "game-settings"
 
 const defaultSettings = {
-  category: "family",
+  category: ["family"],
   roundCount: 5,
   selectedLetters: ["a", "e", "i"],
   isUppercase: false,
 }
 
 export default function HomeScreen({ onStartGame }: HomeScreenProps) {
-  const [category, setCategory] = useState(defaultSettings.category)
+  const [category, setCategory] = useState<string[]>(defaultSettings.category)
   const [roundCount, setRoundCount] = useState(defaultSettings.roundCount)
   const [showPoolModal, setShowPoolModal] = useState(false)
   const [showCustomizeModal, setShowCustomizeModal] = useState(false)
@@ -34,7 +34,9 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
       if (saved) {
         try {
           const loadedSettings = JSON.parse(saved)
-          setCategory(loadedSettings.category || defaultSettings.category)
+          // Hỗ trợ cả string (cũ) và array (mới)
+          const loadedCategory = loadedSettings.category || defaultSettings.category
+          setCategory(Array.isArray(loadedCategory) ? loadedCategory : [loadedCategory])
           setRoundCount(loadedSettings.roundCount || defaultSettings.roundCount)
           setSelectedLetters(loadedSettings.selectedLetters || defaultSettings.selectedLetters)
           setIsUppercase(loadedSettings.isUppercase ?? defaultSettings.isUppercase)
@@ -69,11 +71,47 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
     { id: "colors", name: "🎨 Màu Sắc" },
     { id: "transport", name: "🚗 Giao Thông" },
     { id: "farm", name: "🚜 Nông Nghiệp" },
+    { id: "military", name: "🎖️ Bộ Đội" },
   ]
 
   const handleLetterCustomization = (letters: string[], uppercase: boolean) => {
     setSelectedLetters(letters)
     setIsUppercase(uppercase)
+  }
+
+  const toggleCategory = (catId: string) => {
+    setCategory((prev) => {
+      // Nếu chọn "mixed", chỉ giữ mixed thôi
+      if (catId === "mixed") {
+        if (prev.includes("mixed")) {
+          // Nếu đã chọn mixed, bỏ chọn và chọn family làm mặc định
+          return ["family"]
+        } else {
+          // Chọn mixed, xóa tất cả các chủ đề khác
+          return ["mixed"]
+        }
+      }
+      
+      // Nếu đã chọn mixed, không thể chọn chủ đề khác
+      if (prev.includes("mixed")) {
+        return prev
+      }
+      
+      // Logic bình thường cho các chủ đề khác
+      if (prev.includes(catId)) {
+        // Bỏ chọn, nhưng phải giữ ít nhất 1 chủ đề
+        if (prev.length > 1) {
+          return prev.filter((id) => id !== catId)
+        }
+        return prev
+      } else {
+        // Thêm chọn, nhưng tối đa 3 chủ đề
+        if (prev.length < 3) {
+          return [...prev, catId]
+        }
+        return prev
+      }
+    })
   }
 
   return (
@@ -88,18 +126,25 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
       <div className="bg-white rounded-3xl shadow-2xl p-10 max-w-2xl w-full space-y-8">
         {/* Category selection */}
         <div>
-          <h3 className="text-2xl font-black text-gray-800 mb-6">Chọn Chủ Đề:</h3>
+          <h3 className="text-2xl font-black text-gray-800 mb-2">Chọn Chủ Đề (1-3 chủ đề):</h3>
+          <p className="text-sm text-gray-600 mb-4">Đã chọn: {category.length}/3</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setCategory(cat.id)}
+                onClick={() => toggleCategory(cat.id)}
+                disabled={
+                  // Disable nếu: đã chọn mixed và đang cố chọn chủ đề khác, hoặc đã chọn 3 chủ đề và cố chọn thêm
+                  (category.includes("mixed") && cat.id !== "mixed") ||
+                  (!category.includes(cat.id) && category.length >= 3 && !category.includes("mixed"))
+                }
                 className={`py-4 px-4 rounded-2xl font-bold text-lg transition-all transform ${
-                  category === cat.id
+                  category.includes(cat.id)
                     ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105"
-                    : "bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-lg"
+                    : "bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 }`}
               >
+                {category.includes(cat.id) && "✓ "}
                 {cat.name}
               </button>
             ))}
@@ -140,6 +185,21 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
           >
             ⚙️ Tùy Chỉnh Chữ Cái
           </button>
+        </div>
+
+        {/* Display selected categories */}
+        <div className="p-4 bg-green-50 rounded-xl">
+          <p className="text-sm text-gray-600 mb-2">Chủ đề đã chọn ({category.length}/3):</p>
+          <div className="flex gap-2 flex-wrap">
+            {category.map((catId) => {
+              const cat = categories.find((c) => c.id === catId)
+              return (
+                <span key={catId} className="bg-green-500 text-white px-3 py-1 rounded-lg font-bold text-sm">
+                  {cat?.name || catId}
+                </span>
+              )
+            })}
+          </div>
         </div>
 
         {/* Display selected letters */}

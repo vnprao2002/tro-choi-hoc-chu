@@ -1119,6 +1119,68 @@ const WORD_POOLS = {
             "image": "/images/farm/thu-hoach.jpg"
         }
     ],
+    "military": [
+        {
+            "text": "bộ đội",
+            "image": "/images/military/bo-doi.jpg"
+        },
+        {
+            "text": "chiến sĩ",
+            "image": "/images/military/chien-si.jpg"
+        },
+        {
+            "text": "quân phục",
+            "image": "/images/military/quan-phuc.jpg"
+        },
+        {
+            "text": "mũ cối",
+            "image": "/images/military/mu-coi.jpg"
+        },
+        {
+            "text": "giày bộ đội",
+            "image": "/images/military/giay-bo-doi.jpg"
+        },
+        {
+            "text": "ba lô",
+            "image": "/images/military/ba-lo.jpg"
+        },
+        {
+            "text": "doanh trại",
+            "image": "/images/military/doanh-trai.jpg"
+        },
+        {
+            "text": "cờ đỏ",
+            "image": "/images/military/co-do.jpg"
+        },
+        {
+            "text": "sao vàng",
+            "image": "/images/military/sao-vang.jpg"
+        },
+        {
+            "text": "đồng phục",
+            "image": "/images/military/dong-phuc.jpg"
+        },
+        {
+            "text": "xe quân đội",
+            "image": "/images/military/xe-quan-doi.jpg"
+        },
+        {
+            "text": "ba-ri-e quân đội",
+            "image": "/images/military/barie.jpg"
+        },
+        {
+            "text": "lều trại",
+            "image": "/images/military/leu-trai.jpg"
+        },
+        {
+            "text": "loa phóng thanh",
+            "image": "/images/military/loa.jpg"
+        },
+        {
+            "text": "sân chào cờ",
+            "image": "/images/military/san-chao-co.jpg"
+        }
+    ],
     "fruits": [
         {
             "text": "táo",
@@ -1437,6 +1499,23 @@ const WORD_POOLS = {
     ]
 };
 function getWordPool(category) {
+    // Nếu là array, trộn các chủ đề
+    if (Array.isArray(category)) {
+        const allWords = [];
+        category.forEach((cat)=>{
+            if (cat === "mixed") {
+                // Trộn tất cả các chủ đề
+                Object.values(WORD_POOLS).forEach((words)=>{
+                    allWords.push(...words);
+                });
+            } else {
+                const words = WORD_POOLS[cat] || [];
+                allWords.push(...words);
+            }
+        });
+        return allWords;
+    }
+    // Xử lý string như trước
     if (category === "mixed") {
         // Trộn tất cả các chủ đề
         const allWords = [];
@@ -1940,7 +2019,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$letter$2d$cust
 ;
 const STORAGE_KEY = "game-settings";
 const defaultSettings = {
-    category: "family",
+    category: [
+        "family"
+    ],
     roundCount: 5,
     selectedLetters: [
         "a",
@@ -2009,11 +2090,54 @@ function HomeScreen({ onStartGame }) {
         {
             id: "farm",
             name: "🚜 Nông Nghiệp"
+        },
+        {
+            id: "military",
+            name: "🎖️ Bộ Đội"
         }
     ];
     const handleLetterCustomization = (letters, uppercase)=>{
         setSelectedLetters(letters);
         setIsUppercase(uppercase);
+    };
+    const toggleCategory = (catId)=>{
+        setCategory((prev)=>{
+            // Nếu chọn "mixed", chỉ giữ mixed thôi
+            if (catId === "mixed") {
+                if (prev.includes("mixed")) {
+                    // Nếu đã chọn mixed, bỏ chọn và chọn family làm mặc định
+                    return [
+                        "family"
+                    ];
+                } else {
+                    // Chọn mixed, xóa tất cả các chủ đề khác
+                    return [
+                        "mixed"
+                    ];
+                }
+            }
+            // Nếu đã chọn mixed, không thể chọn chủ đề khác
+            if (prev.includes("mixed")) {
+                return prev;
+            }
+            // Logic bình thường cho các chủ đề khác
+            if (prev.includes(catId)) {
+                // Bỏ chọn, nhưng phải giữ ít nhất 1 chủ đề
+                if (prev.length > 1) {
+                    return prev.filter((id)=>id !== catId);
+                }
+                return prev;
+            } else {
+                // Thêm chọn, nhưng tối đa 3 chủ đề
+                if (prev.length < 3) {
+                    return [
+                        ...prev,
+                        catId
+                    ];
+                }
+                return prev;
+            }
+        });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gradient-to-br from-blue-200 via-pink-200 to-green-200 flex flex-col items-center justify-center p-4",
@@ -2026,7 +2150,7 @@ function HomeScreen({ onStartGame }) {
                         children: "🎮 Học Chữ Cái 🎮"
                     }, void 0, false, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 83,
+                        lineNumber: 121,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2034,13 +2158,13 @@ function HomeScreen({ onStartGame }) {
                         children: "Trò chơi vui cho bé 5-6 tuổi"
                     }, void 0, false, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 84,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 82,
+                lineNumber: 120,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2049,33 +2173,50 @@ function HomeScreen({ onStartGame }) {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                className: "text-2xl font-black text-gray-800 mb-6",
-                                children: "Chọn Chủ Đề:"
+                                className: "text-2xl font-black text-gray-800 mb-2",
+                                children: "Chọn Chủ Đề (1-3 chủ đề):"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 91,
+                                lineNumber: 129,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-600 mb-4",
+                                children: [
+                                    "Đã chọn: ",
+                                    category.length,
+                                    "/3"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/home-screen.tsx",
+                                lineNumber: 130,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-2 md:grid-cols-3 gap-4",
                                 children: categories.map((cat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>setCategory(cat.id),
-                                        className: `py-4 px-4 rounded-2xl font-bold text-lg transition-all transform ${category === cat.id ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105" : "bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-lg"}`,
-                                        children: cat.name
-                                    }, cat.id, false, {
+                                        onClick: ()=>toggleCategory(cat.id),
+                                        disabled: // Disable nếu: đã chọn mixed và đang cố chọn chủ đề khác, hoặc đã chọn 3 chủ đề và cố chọn thêm
+                                        category.includes("mixed") && cat.id !== "mixed" || !category.includes(cat.id) && category.length >= 3 && !category.includes("mixed"),
+                                        className: `py-4 px-4 rounded-2xl font-bold text-lg transition-all transform ${category.includes(cat.id) ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg scale-105" : "bg-gray-100 text-gray-800 hover:bg-gray-200 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"}`,
+                                        children: [
+                                            category.includes(cat.id) && "✓ ",
+                                            cat.name
+                                        ]
+                                    }, cat.id, true, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 133,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 92,
+                                lineNumber: 131,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 90,
+                        lineNumber: 128,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2085,7 +2226,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "Số Vòng Chơi:"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 111,
+                                lineNumber: 156,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2104,18 +2245,18 @@ function HomeScreen({ onStartGame }) {
                                         ]
                                     }, count, true, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 114,
+                                        lineNumber: 159,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 112,
+                                lineNumber: 157,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 110,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2127,7 +2268,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "👀 Xem Danh Sách Từ"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 131,
+                                lineNumber: 176,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2136,13 +2277,52 @@ function HomeScreen({ onStartGame }) {
                                 children: "⚙️ Tùy Chỉnh Chữ Cái"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 137,
+                                lineNumber: 182,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 130,
+                        lineNumber: 175,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "p-4 bg-green-50 rounded-xl",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-600 mb-2",
+                                children: [
+                                    "Chủ đề đã chọn (",
+                                    category.length,
+                                    "/3):"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/home-screen.tsx",
+                                lineNumber: 192,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2 flex-wrap",
+                                children: category.map((catId)=>{
+                                    const cat = categories.find((c)=>c.id === catId);
+                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "bg-green-500 text-white px-3 py-1 rounded-lg font-bold text-sm",
+                                        children: cat?.name || catId
+                                    }, catId, false, {
+                                        fileName: "[project]/components/home-screen.tsx",
+                                        lineNumber: 197,
+                                        columnNumber: 17
+                                    }, this);
+                                })
+                            }, void 0, false, {
+                                fileName: "[project]/components/home-screen.tsx",
+                                lineNumber: 193,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/home-screen.tsx",
+                        lineNumber: 191,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2153,7 +2333,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "Chữ cái được chọn:"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 147,
+                                lineNumber: 207,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2163,24 +2343,24 @@ function HomeScreen({ onStartGame }) {
                                         children: isUppercase ? letter.toUpperCase() : letter
                                     }, letter, false, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 150,
+                                        lineNumber: 210,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 148,
+                                lineNumber: 208,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 146,
+                        lineNumber: 206,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 88,
+                lineNumber: 126,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2194,7 +2374,7 @@ function HomeScreen({ onStartGame }) {
                 children: "🎮 Bắt Đầu Chơi 🎮"
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 159,
+                lineNumber: 219,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2204,12 +2384,12 @@ function HomeScreen({ onStartGame }) {
                     children: "Giúp bé học tiếng Việt một cách vui vẻ!"
                 }, void 0, false, {
                     fileName: "[project]/components/home-screen.tsx",
-                    lineNumber: 175,
+                    lineNumber: 235,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 174,
+                lineNumber: 234,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$pool$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2218,7 +2398,7 @@ function HomeScreen({ onStartGame }) {
                 onClose: ()=>setShowPoolModal(false)
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 178,
+                lineNumber: 238,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$letter$2d$customization$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2228,13 +2408,13 @@ function HomeScreen({ onStartGame }) {
                 category: category
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 179,
+                lineNumber: 239,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/home-screen.tsx",
-        lineNumber: 80,
+        lineNumber: 118,
         columnNumber: 5
     }, this);
 }
@@ -3361,7 +3541,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$screen
 function Page() {
     const [gameState, setGameState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("home");
     const [settings, setSettings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
-        category: "family",
+        category: [
+            "family"
+        ],
         roundCount: 5,
         selectedLetters: [
             "a",

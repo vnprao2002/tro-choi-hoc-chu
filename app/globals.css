@@ -76,7 +76,7 @@
 }
 
 @theme inline {
-  --font-sans: "Be Vietnam Pro", "Geist", "Geist Fallback", sans-serif;
+  --font-sans: "Lexend", sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);

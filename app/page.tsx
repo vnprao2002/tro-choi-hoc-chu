@@ -7,7 +7,7 @@ import GameScreen from "@/components/game-screen"
 export default function Page() {
   const [gameState, setGameState] = useState<"home" | "game">("home")
   const [settings, setSettings] = useState({
-    category: "family",
+    category: ["family"] as string[],
     roundCount: 5,
     selectedLetters: ["a", "e", "i"],
     isUppercase: false,

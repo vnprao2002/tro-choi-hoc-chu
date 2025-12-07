@@ -2,7 +2,7 @@
 import { getWordPool } from "@/lib/word-pools"
 
 interface PoolModalProps {
-  category: string
+  category: string | string[]
   isOpen: boolean
   onClose: () => void
 }

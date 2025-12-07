@@ -8,7 +8,7 @@ interface LetterCustomizationModalProps {
   isOpen: boolean
   onClose: () => void
   onConfirm: (letters: string[], isUppercase: boolean) => void
-  category: string
+  category: string | string[]
 }
 
 export default function LetterCustomizationModal({
