@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò Chơi Nông Trại</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+            background: linear-gradient(135deg, #90EE90 0%, #98FB98 50%, #90EE90 100%);
+            height: 100vh;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Decorative elements */
+        .farmer-decoration {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 120px;
+            height: auto;
+            z-index: 100;
+            animation: farmerWave 3s ease-in-out infinite;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .barn-decoration {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 200px;
+            height: auto;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        @keyframes farmerWave {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+
+        .decoration-icon {
+            position: fixed;
+            font-size: 40px;
+            z-index: 50;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        .decoration-icon.rice-1 {
+            top: 8%;
+            left: 2%;
+            animation-delay: 0s;
+        }
+
+        .decoration-icon.rice-2 {
+            top: 12%;
+            right: 3%;
+            animation-delay: 1s;
+        }
+
+        .decoration-icon.rice-3 {
+            bottom: 25%;
+            left: 1%;
+            animation-delay: 2s;
+        }
+
+        .decoration-icon.tree-1 {
+            top: 3%;
+            left: 0%;
+            font-size: 50px;
+            animation-delay: 0.5s;
+        }
+
+        .decoration-icon.tree-2 {
+            top: 5%;
+            right: 1%;
+            font-size: 45px;
+            animation-delay: 1.5s;
+        }
+
+        .decoration-icon.flower-1 {
+            bottom: 20%;
+            right: 2%;
+            animation-delay: 2.5s;
+        }
+
+        .decoration-icon.flower-2 {
+            bottom: 15%;
+            left: 3%;
+            animation-delay: 3s;
+        }
+
+        /* Hide decorations on small screens */
+        @media (max-width: 768px) {
+            .farmer-decoration,
+            .barn-decoration,
+            .decoration-icon {
+                display: none;
+            }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            font-size: clamp(32px, 4vw, 42px);
+            color: #228B22;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+
+        .settings-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .settings-panel {
+            display: none;
+            background: white;
+            border: 4px solid #FFD700;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-panel.show {
+            display: block;
+        }
+
+        .settings-panel h2 {
+            font-size: 32px;
+            color: #228B22;
+            margin-bottom: 20px;
+        }
+
+        .case-toggle {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .case-toggle label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .case-toggle-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .case-btn {
+            padding: 8px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid #228B22;
+            border-radius: 8px;
+            cursor: pointer;
+            background: white;
+            color: #228B22;
+            transition: all 0.2s;
+        }
+
+        .case-btn.active {
+            background: #228B22;
+            color: white;
+        }
+
+        .case-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .setting-group label {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .setting-group input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #90EE90;
+            cursor: pointer;
+        }
+
+        .letter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .letter-btn {
+            padding: 10px 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #e0e0e0;
+            color: #333;
+            transition: all 0.2s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+            min-height: 50px;
+        }
+
+        .letter-btn.selected-letter {
+            background: #90EE90;
+            color: white;
+            border-color: #228B22;
+        }
+
+        .letter-btn.selected-other {
+            background: #FFA500;
+            color: white;
+            border-color: #FF8C00;
+        }
+
+        .letter-btn.highlighted {
+            background: #FFD700;
+            color: #333;
+            border-color: #FFA500;
+        }
+
+        .row-garden.error-blink {
+            animation: errorBlink 0.5s ease-in-out;
+        }
+
+        @keyframes errorBlink {
+            0%, 100% { background-color: inherit; }
+            50% { background-color: #ff4444; }
+        }
+
+        .seed-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .seed-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #654321;
+            border-radius: 50%;
+        }
+
+        .watering-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        .water-drop {
+            position: absolute;
+            font-size: 24px;
+            animation: waterDrop 1s ease-out;
+        }
+
+        @keyframes waterDrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.8);
+            }
+        }
+
+        .sprouts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 10px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .sprout-icon {
+            font-size: 32px;
+            animation: sproutGrow 0.5s ease-out;
+        }
+
+        @keyframes sproutGrow {
+            from {
+                transform: scale(0) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .material-item.original-position {
+            transition: transform 0.5s ease-out;
+        }
+
+        .letter-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .settings-close-btn {
+            background: #228B22;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+
+        .settings-close-btn:hover {
+            background: #1a6b1a;
+        }
+
+        .status {
+            text-align: center;
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: bold;
+            color: #228B22;
+            margin-bottom: 15px;
+            animation: pulse 1s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .rows-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex: 1;
+            min-height: 0;
+            overflow: visible;
+        }
+
+        .row-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .row-label {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: clamp(20px, 2.5vw, 26px);
+            font-weight: bold;
+            min-width: 70px;
+            width: 70px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid #654321;
+            flex-shrink: 0;
+        }
+
+        .row-garden {
+            flex: 1;
+            background: linear-gradient(135deg, #90EE90, #7CCD7C);
+            border: 3px solid #228B22;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 90px;
+            max-height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            cursor: grab;
+            transition: background 0.3s;
+        }
+
+        .row-garden:hover {
+            background: linear-gradient(135deg, #98FB98, #90EE90);
+        }
+
+        .row-garden.drag-over {
+            background: #FFD700;
+            border-color: #FF8C00;
+        }
+
+        /* Giai đoạn gieo hạt - đất màu nâu nhẹ */
+        .row-garden[data-stage="seed"] {
+            background: linear-gradient(135deg, #D2B48C, #C19A6B);
+        }
+
+        /* Giai đoạn tưới nước - đất ẩm, màu nâu đậm hơn */
+        .row-garden[data-stage="watering"] {
+            background: linear-gradient(135deg, #8B6F47, #6B4E3D);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Giai đoạn bón phân - lên mầm với icon cây nhỏ */
+        .row-garden[data-stage="fertilizing"] {
+            background: linear-gradient(135deg, #8B6F47, #6B4E3D);
+        }
+
+        @keyframes grow {
+            from {
+                font-size: 20px;
+                opacity: 0;
+            }
+
+            to {
+                font-size: 40px;
+                opacity: 0.4;
+            }
+        }
+
+        .row-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+        }
+
+        .drop-indicator {
+            position: absolute;
+            z-index: 10;
+            font-size: 28px;
+            margin-left: 70px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .flower-complete {
+            animation: pop 0.5s ease-out;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .materials-section {
+            background: white;
+            border: 3px solid #87CEEB;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            overflow: visible;
+            flex: 0 0 auto;
+        }
+
+        .materials-section p {
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 12px;
+        }
+
+        .materials-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: relative;
+            min-height: 220px;
+            overflow: visible;
+        }
+
+        .material-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+
+        .material-item:hover {
+            transform: scale(1.1);
+        }
+
+        .material-item:active {
+            opacity: 0.7;
+            cursor: grabbing;
+        }
+
+        /* SVG icon styling */
+        .material-item svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .icon-letter {
+            position: absolute;
+            font-weight: bold;
+            font-size: 36px;
+            pointer-events: none;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+            z-index: 10;
+        }
+
+        /* Seed letter position */
+        .material-item[data-type="seed"] .icon-letter {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Watering can letter position - down and left */
+        .material-item[data-type="watering"] .icon-letter {
+            top: 55%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Fertilizer letter position - down a bit */
+        .material-item[data-type="fertilizing"] .icon-letter {
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .completion-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border: 4px solid #FFD700;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .completion-section h2 {
+            font-size: 48px;
+            color: #228B22;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+
+        .completion-section p {
+            font-size: 28px;
+            color: #228B22;
+            margin-bottom: 20px;
+        }
+
+        .replay-btn {
+            background: #228B22;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .replay-btn:hover {
+            background: #1a6b1a;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Decorative icons -->
+    <span class="decoration-icon tree-1">🌳</span>
+    <span class="decoration-icon tree-2">🌲</span>
+    <span class="decoration-icon rice-1">🌾</span>
+    <span class="decoration-icon rice-2">🌾</span>
+    <span class="decoration-icon rice-3">🌾</span>
+    <span class="decoration-icon flower-1">🌸</span>
+    <span class="decoration-icon flower-2">🌺</span>
+    
+    <!-- Farmer decoration -->
+    <img src="assets/Farmer.png" alt="Farmer" class="farmer-decoration">
+    
+    <!-- Barn decoration -->
+    <img src="assets/barn.png" alt="Barn" class="barn-decoration">
+
+    <!-- Audio elements -->
+    <audio id="correctSound" preload="auto">
+        <source src="assets/correct.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrongSound" preload="auto">
+        <source src="assets/wrong.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="victorySound" preload="auto">
+        <source src="assets/victory.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌼 Trò Chơi Nông Trại 🌼</h1>
+            <div style="display: flex; gap: 10px;">
+                <button class="settings-btn" id="settingsBtn" title="Tùy chỉnh">⚙️</button>
+                <button class="settings-btn" id="resetGameBtn" title="Reset Game" style="background: linear-gradient(135deg, #FF6B6B, #FF4757);">🔄</button>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel">
+            <h2>Tùy Chỉnh Trò Chơi</h2>
+            <div class="case-toggle">
+                <label>Kiểu Chữ:</label>
+                <div class="case-toggle-buttons">
+                    <button class="case-btn active" id="uppercaseBtn" data-case="upper">Chữ Hoa</button>
+                    <button class="case-btn" id="lowercaseBtn" data-case="lower">Chữ Thường</button>
+                </div>
+            </div>
+            <div class="settings-grid">
+                <div class="setting-group">
+                    <label>Số Luống: <span id="rowCountDisplay">3</span></label>
+                    <input type="range" id="rowCount" min="1" max="3" value="3">
+                </div>
+
+                <div class="setting-group">
+                    <label>Chữ Cái Luống:</label>
+                    <div class="letter-buttons" id="selectedLettersContainer"></div>
+                </div>
+
+                <div class="setting-group">
+                    <label>Chữ Cái Khác:</label>
+                    <div class="letter-buttons" id="otherLettersContainer"></div>
+                </div>
+            </div>
+            <button class="settings-close-btn" id="settingsCloseBtn">Xong</button>
+        </div>
+
+        <!-- Status -->
+        <div class="status" id="status">🌱 Gieo Hạt</div>
+
+        <!-- Rows Container -->
+        <div class="rows-container" id="rowsContainer"></div>
+
+        <!-- Materials Section -->
+        <div class="materials-section" id="materialsSection">
+            <p id="materialsLabel">Kéo Hạt Giống vào luống đúng:</p>
+            <div class="materials-container" id="materialsContainer"></div>
+        </div>
+
+        <!-- Completion Section -->
+        <div class="completion-section hidden" id="completionSection">
+            <h2>🎉 Tuyệt Vời! 🎉</h2>
+            <p>Tất cả hoa đều nở rồi!</p>
+            <button class="replay-btn" id="resetBtn">Reset Trò Chơi</button>
+        </div>
+    </div>
+
+    <script>
+        function createSeedSVG() {
+            return `
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="40" cy="35" rx="20" ry="28" fill="#D4A574"/>
+                    <path d="M35 10 Q30 5, 28 0 Q32 8, 35 10" fill="#8B7355"/>
+                    <path d="M45 10 Q50 5, 52 0 Q48 8, 45 10" fill="#8B7355"/>
+                    <circle cx="40" cy="38" r="3" fill="#333" opacity="0.3"/>
+                    <ellipse cx="40" cy="35" rx="18" ry="24" fill="#DEB887" opacity="0.5"/>
+                </svg>
+            `;
+        }
+
+        function createWateringCanSVG() {
+            return `
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Thay đổi bình tưới thành màu xanh dương, thiết kế thân thiện hơn -->
+                    <path d="M10 50 L15 35 L20 32 L40 28 L55 35 L60 50 Q60 62, 48 68 L22 68 Q10 62, 10 50 Z" fill="#4A90E2" stroke="#2E5C8A" stroke-width="2"/>
+                    <ellipse cx="40" cy="28" rx="12" ry="8" fill="#6BB6FF" stroke="#2E5C8A" stroke-width="1.5"/>
+                    <path d="M62 40 L75 32 Q76 35, 75 38" stroke="#87CEEB" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <circle cx="70" cy="28" r="2.5" fill="#87CEEB" opacity="0.8"/>
+                    <circle cx="73" cy="30" r="2" fill="#87CEEB" opacity="0.8"/>
+                    <circle cx="76" cy="33" r="1.5" fill="#87CEEB" opacity="0.8"/>
+                </svg>
+            `;
+        }
+
+        function createFertilizerBagSVG() {
+            return `
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 30 L20 60 Q20 70, 30 75 L50 75 Q60 70, 60 60 L60 30 Z" fill="#CD853F" stroke="#8B4513" stroke-width="2"/>
+                    <rect x="22" y="32" width="36" height="30" fill="#D2691E" opacity="0.7"/>
+                    <path d="M28 28 L28 22 Q28 18, 32 18 L48 18 Q52 18, 52 22 L52 28" fill="#8B4513" stroke="#654321" stroke-width="1.5"/>
+                    <circle cx="35" cy="38" r="3" fill="#FFD700" opacity="0.8"/>
+                    <circle cx="45" cy="42" r="2.5" fill="#FFD700" opacity="0.8"/>
+                    <circle cx="40" cy="52" r="3.5" fill="#FFD700" opacity="0.8"/>
+                </svg>
+            `;
+        }
+
+        function createFlowerSVG() {
+            return `
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="40" y1="80" x2="40" y2="45" stroke="#2D5016" stroke-width="3"/>
+                    <ellipse cx="35" cy="65" rx="3" ry="6" fill="#3D6B1F" transform="rotate(-30 35 65)"/>
+                    <ellipse cx="45" cy="65" rx="3" ry="6" fill="#3D6B1F" transform="rotate(30 45 65)"/>
+                    <circle cx="40" cy="35" r="15" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                    <circle cx="32" cy="22" r="10" fill="#FF6B6B" stroke="#FF4757" stroke-width="1.5"/>
+                    <circle cx="40" cy="12" r="10" fill="#FF6B6B" stroke="#FF4757" stroke-width="1.5"/>
+                    <circle cx="48" cy="22" r="10" fill="#FF6B6B" stroke="#FF4757" stroke-width="1.5"/>
+                    <circle cx="38" cy="28" r="9" fill="#FFA500" stroke="#FF8C00" stroke-width="1.5"/>
+                    <circle cx="42" cy="28" r="9" fill="#FFA500" stroke="#FF8C00" stroke-width="1.5"/>
+                    <circle cx="40" cy="24" r="4" fill="#FFFF00"/>
+                </svg>
+            `;
+        }
+
+        const VIETNAMESE_LETTERS = [
+            "A", "Ă", "Â", "B", "C", "D", "Đ", "E", "Ê", "G",
+            "H", "I", "K", "L", "M", "N", "O", "Ô", "Ơ", "P",
+            "Q", "R", "S", "T", "U", "Ư", "V", "X", "Y", "Z"
+        ];
+
+        const STAGES = ["seed", "watering", "fertilizing", "completed"];
+        const STAGE_NAMES = {
+            seed: "🌱 Gieo Hạt",
+            watering: "💧 Tưới Nước",
+            fertilizing: "🥗 Bón Phân",
+            completed: "🌻 Hoàn Thành!"
+        };
+        const STAGE_LABELS = {
+            seed: "Hạt Giống",
+            watering: "Nước Tưới",
+            fertilizing: "Phân Bón"
+        };
+
+        // Load settings from localStorage or use defaults
+        function loadSettings() {
+            const saved = localStorage.getItem("gameSettings");
+            if (saved) {
+                try {
+                    return JSON.parse(saved);
+                } catch (e) {
+                    console.error("Error loading settings:", e);
+                }
+            }
+            return {
+                selectedLetters: ["A", "Ă", "Â"],
+                otherLetters: ["B", "C", "D"],
+                rowCount: 3,
+                letterCase: "upper"
+            };
+        }
+
+        function saveSettings() {
+            localStorage.setItem("gameSettings", JSON.stringify(settings));
+        }
+
+        let settings = loadSettings();
+
+        let rows = [];
+        let draggedItem = null;
+        let completedTasks = new Map();
+        let materialPositions = new Map(); // Store original positions for materials
+        let materialElements = new Map(); // Store material DOM elements
+        let usedMaterials = new Set(); // Track materials that have been used
+
+        // Initialize
+        function init() {
+            // Set active button for letter case
+            if (settings.letterCase === "upper") {
+                document.getElementById("uppercaseBtn")?.classList.add("active");
+                document.getElementById("lowercaseBtn")?.classList.remove("active");
+            } else {
+                document.getElementById("lowercaseBtn")?.classList.add("active");
+                document.getElementById("uppercaseBtn")?.classList.remove("active");
+            }
+            
+            // Set row count display
+            document.getElementById("rowCountDisplay").textContent = settings.rowCount;
+            document.getElementById("rowCount").value = settings.rowCount;
+            
+            renderSettings();
+            initRows();
+            attachEventListeners();
+        }
+
+        function getLetterCase(letter) {
+            return settings.letterCase === "upper" ? letter : letter.toLowerCase();
+        }
+
+        function renderSettings() {
+            const selectedContainer = document.getElementById("selectedLettersContainer");
+            const otherContainer = document.getElementById("otherLettersContainer");
+            selectedContainer.innerHTML = "";
+            otherContainer.innerHTML = "";
+
+            // Render all letters in selected letters container
+            VIETNAMESE_LETTERS.forEach(letter => {
+                const displayLetter = getLetterCase(letter);
+                const isInSelected = settings.selectedLetters.includes(letter);
+                const isInOther = settings.otherLetters.includes(letter);
+                const isHighlighted = isInSelected && isInOther; // Highlight if in both
+
+                const btn = document.createElement("button");
+                btn.className = "letter-btn";
+                btn.textContent = displayLetter;
+                btn.dataset.letter = letter;
+
+                if (isInSelected) {
+                    btn.classList.add("selected-letter");
+                    btn.onclick = () => toggleSelectedLetter(letter);
+                } else {
+                    btn.onclick = () => addSelectedLetter(letter);
+                }
+
+                if (isHighlighted) {
+                    btn.classList.add("highlighted");
+                }
+
+                selectedContainer.appendChild(btn);
+            });
+
+            // Render all letters in other letters container
+            VIETNAMESE_LETTERS.forEach(letter => {
+                const displayLetter = getLetterCase(letter);
+                const isInSelected = settings.selectedLetters.includes(letter);
+                const isInOther = settings.otherLetters.includes(letter);
+                const isHighlighted = isInSelected && isInOther;
+
+                const btnOther = document.createElement("button");
+                btnOther.className = "letter-btn";
+                btnOther.textContent = displayLetter;
+                btnOther.dataset.letter = letter;
+
+                if (isInOther) {
+                    btnOther.classList.add("selected-other");
+                    btnOther.onclick = () => toggleOtherLetter(letter);
+                } else if (isInSelected) {
+                    btnOther.classList.add("highlighted");
+                    btnOther.onclick = () => moveToOtherLetters(letter);
+                } else {
+                    btnOther.onclick = () => addOtherLetter(letter);
+                }
+
+                otherContainer.appendChild(btnOther);
+            });
+        }
+
+
+        function toggleSelectedLetter(letter) {
+            settings.selectedLetters = settings.selectedLetters.filter(l => l !== letter);
+            saveSettings();
+            renderSettings();
+            updateRowCount();
+        }
+
+        function toggleOtherLetter(letter) {
+            settings.otherLetters = settings.otherLetters.filter(l => l !== letter);
+            saveSettings();
+            renderSettings();
+        }
+
+        function addOtherLetter(letter) {
+            if (!settings.otherLetters.includes(letter)) {
+                settings.otherLetters.push(letter);
+                saveSettings();
+                renderSettings();
+            }
+        }
+
+        function addSelectedLetter(letter) {
+            if (settings.selectedLetters.length < settings.rowCount) {
+                settings.selectedLetters.push(letter);
+                saveSettings();
+                // If letter is in otherLetters, keep it there (highlighted)
+                renderSettings();
+                updateRowCount();
+            }
+        }
+
+        function moveToOtherLetters(letter) {
+            if (!settings.otherLetters.includes(letter)) {
+                settings.otherLetters.push(letter);
+                saveSettings();
+                renderSettings();
+            }
+        }
+
+        function attachEventListeners() {
+            document.getElementById("settingsBtn").onclick = () => {
+                document.getElementById("settingsPanel").classList.toggle("show");
+            };
+
+            document.getElementById("settingsCloseBtn").onclick = () => {
+                document.getElementById("settingsPanel").classList.remove("show");
+                // Save settings and re-render materials when closing settings
+                saveSettings();
+                renderMaterials();
+            };
+
+            document.getElementById("rowCount").oninput = (e) => {
+                settings.rowCount = parseInt(e.target.value);
+                document.getElementById("rowCountDisplay").textContent = settings.rowCount;
+                while (settings.selectedLetters.length > settings.rowCount) {
+                    settings.selectedLetters.pop();
+                }
+                saveSettings();
+                renderSettings();
+                updateRowCount();
+            };
+
+            // Case toggle buttons
+            document.getElementById("uppercaseBtn").onclick = () => {
+                settings.letterCase = "upper";
+                document.getElementById("uppercaseBtn").classList.add("active");
+                document.getElementById("lowercaseBtn").classList.remove("active");
+                saveSettings();
+                renderSettings();
+                updateRowCount();
+            };
+
+            document.getElementById("lowercaseBtn").onclick = () => {
+                settings.letterCase = "lower";
+                document.getElementById("lowercaseBtn").classList.add("active");
+                document.getElementById("uppercaseBtn").classList.remove("active");
+                saveSettings();
+                renderSettings();
+                updateRowCount();
+            };
+
+            // Reset button in completion section
+            document.getElementById("resetBtn").onclick = () => {
+                resetGame();
+            };
+
+            // Reset button in header
+            document.getElementById("resetGameBtn").onclick = () => {
+                resetGame();
+            };
+        }
+
+        function resetGame() {
+            rows = Array.from({ length: settings.rowCount }, (_, i) => ({
+                id: i,
+                stage: "seed",
+                letter: settings.selectedLetters[i % settings.selectedLetters.length],
+                hasSeeds: false,
+                hasWater: false,
+                hasFertilizer: false
+            }));
+            completedTasks.clear();
+            materialPositions.clear();
+            materialElements.clear();
+            usedMaterials.clear(); // Clear used materials
+            document.getElementById("completionSection").classList.add("hidden");
+            document.getElementById("materialsSection").classList.remove("hidden");
+            renderRows();
+            renderMaterials();
+            updateStatus();
+        }
+
+        function updateRowCount() {
+            initRows();
+        }
+
+        function initRows() {
+            rows = Array.from({ length: settings.rowCount }, (_, i) => ({
+                id: i,
+                stage: "seed",
+                letter: settings.selectedLetters[i % settings.selectedLetters.length],
+                hasSeeds: false,
+                hasWater: false,
+                hasFertilizer: false
+            }));
+            completedTasks = new Map();
+            materialPositions.clear();
+            materialElements.clear();
+            renderRows();
+            renderMaterials();
+        }
+
+        function renderRows() {
+            const container = document.getElementById("rowsContainer");
+            container.innerHTML = "";
+
+            rows.forEach(row => {
+                const rowEl = document.createElement("div");
+                rowEl.className = "row-item";
+
+                const label = document.createElement("div");
+                label.className = "row-label";
+                label.textContent = getLetterCase(row.letter);
+
+                const garden = document.createElement("div");
+                garden.className = "row-garden";
+                garden.id = `row-${row.id}`;
+                garden.setAttribute("data-stage", row.stage);
+                garden.ondragover = (e) => {
+                    e.preventDefault();
+                    e.target.closest(".row-garden").classList.add("drag-over");
+                };
+                garden.ondragleave = (e) => {
+                    e.target.closest(".row-garden").classList.remove("drag-over");
+                };
+                garden.ondrop = (e) => {
+                    e.preventDefault();
+                    garden.classList.remove("drag-over");
+                    handleDrop(row.id, row.letter);
+                };
+
+                const content = document.createElement("div");
+                content.className = "row-content";
+
+                if (row.stage === "completed") {
+                    const flowers = ["🌻", "🌷", "🌹", "🌺", "🌸", "🌼", "🌺", "🌻"];
+                    // Distribute flowers across the row
+                    const flowersContainer = document.createElement("div");
+                    flowersContainer.style.position = "absolute";
+                    flowersContainer.style.width = "100%";
+                    flowersContainer.style.height = "100%";
+                    flowersContainer.style.display = "flex";
+                    flowersContainer.style.justifyContent = "space-around";
+                    flowersContainer.style.alignItems = "center";
+                    flowersContainer.style.padding = "0 20px";
+                    flowersContainer.style.zIndex = "20";
+
+                    // Calculate how many flowers to show (more for longer rows)
+                    const flowerCount = Math.max(3, Math.floor((garden.offsetWidth || 300) / 80));
+                    for (let i = 0; i < flowerCount; i++) {
+                        const flowerIcon = document.createElement("span");
+                        flowerIcon.textContent = flowers[(row.id + i) % flowers.length];
+                        flowerIcon.style.fontSize = "48px";
+                        flowerIcon.style.animation = `pop 0.5s ease-out ${i * 0.1}s both`;
+                        flowersContainer.appendChild(flowerIcon);
+                    }
+
+                    garden.appendChild(flowersContainer);
+                    content.classList.add("flower-complete");
+                } else {
+                    // Show seed dots if seeds have been planted
+                    if (row.stage === "seed" && row.hasSeeds) {
+                        const seedDots = document.createElement("div");
+                        seedDots.className = "seed-dots";
+                        // Add 4-6 dots randomly positioned
+                        const dotCount = 5;
+                        for (let i = 0; i < dotCount; i++) {
+                            const dot = document.createElement("div");
+                            dot.className = "seed-dot";
+                            dot.style.left = `${15 + Math.random() * 70}%`;
+                            dot.style.top = `${30 + Math.random() * 40}%`;
+                            seedDots.appendChild(dot);
+                        }
+                        garden.appendChild(seedDots);
+                    }
+
+                    // Show sprouts if fertilized
+                    if (row.stage === "fertilizing" && row.hasFertilizer) {
+                        const sproutsContainer = document.createElement("div");
+                        sproutsContainer.className = "sprouts-container";
+                        const sproutCount = Math.max(3, Math.floor((garden.offsetWidth || 300) / 100));
+                        for (let i = 0; i < sproutCount; i++) {
+                            const sprout = document.createElement("span");
+                            sprout.className = "sprout-icon";
+                            sprout.textContent = "🌱";
+                            sproutsContainer.appendChild(sprout);
+                        }
+                        garden.appendChild(sproutsContainer);
+                    }
+
+                    // Only show indicator if not completed for this row
+                    const taskKey = `${row.stage}-${row.id}`;
+                    if (!completedTasks.has(taskKey)) {
+                        const indicator = document.createElement("div");
+                        indicator.className = "drop-indicator";
+                        indicator.textContent = "⬇️";
+                        garden.appendChild(indicator);
+                    }
+                }
+
+                garden.appendChild(content);
+                rowEl.appendChild(label);
+                rowEl.appendChild(garden);
+                container.appendChild(rowEl);
+            });
+        }
+
+        function renderMaterials() {
+            const container = document.getElementById("materialsContainer");
+            const label = document.getElementById("materialsLabel");
+            
+            if (rows[0]?.stage === "completed") {
+                label.textContent = "✓ Hoàn thành!";
+                container.innerHTML = "";
+                materialElements.clear();
+                return;
+            }
+
+            const stage = rows[0]?.stage || "seed";
+            label.textContent = `Kéo ${STAGE_LABELS[stage]} vào luống đúng:`;
+
+            const availableLetters = [...settings.selectedLetters, ...settings.otherLetters];
+
+            // Check if we need to clear (new stage)
+            const existingItems = Array.from(container.children).filter(child => 
+                child.id && child.id.startsWith(`material-${stage}-`)
+            );
+
+            // If we're on a new stage, clear everything
+            if (existingItems.length === 0 && materialElements.size > 0) {
+                // New stage - clear old items and used materials (new stage = new materials)
+                container.innerHTML = "";
+                materialElements.clear();
+                materialPositions.clear();
+                // Clear usedMaterials for new stage (each stage has different material IDs)
+                usedMaterials.clear();
+            }
+
+            availableLetters.forEach((letter, index) => {
+                const materialId = `material-${stage}-${letter}`;
+                
+                // Skip if this material was already used
+                if (usedMaterials.has(materialId)) {
+                    return;
+                }
+                
+                // Check if item already exists in DOM
+                let item = document.getElementById(materialId);
+                
+                if (!item) {
+                    // Create new item only if it doesn't exist
+                    item = document.createElement("div");
+                    item.className = "material-item";
+                    item.draggable = true;
+                    item.id = materialId;
+
+                    const stageIcons = {
+                        seed: createSeedSVG(),
+                        watering: createWateringCanSVG(),
+                        fertilizing: createFertilizerBagSVG()
+                    };
+
+                    item.innerHTML = stageIcons[stage] || "";
+                    item.setAttribute("data-type", stage);
+
+                    const letterSpan = document.createElement("span");
+                    letterSpan.className = "icon-letter";
+                    letterSpan.textContent = getLetterCase(letter);
+                    item.appendChild(letterSpan);
+
+                    // Random position only for new items - avoid overlap
+                    const containerWidth = container.offsetWidth || 800;
+                    const containerHeight = 220;
+                    let randomX, randomY;
+                    
+                    // Get all existing positions
+                    const existingPositions = [];
+                    const existingItems = container.querySelectorAll('.material-item');
+                    existingItems.forEach((existingItem) => {
+                        if (existingItem.id !== materialId) {
+                            const rect = existingItem.getBoundingClientRect();
+                            const containerRect = container.getBoundingClientRect();
+                            const existingX = rect.left - containerRect.left;
+                            const existingY = rect.top - containerRect.top;
+                            existingPositions.push({ x: existingX, y: existingY });
+                        }
+                    });
+                    
+                    // Try to find a position that doesn't overlap
+                    let attempts = 0;
+                    let foundPosition = false;
+                    const minDistance = 120; // Minimum distance between items
+                    
+                    while (!foundPosition && attempts < 200) {
+                        randomX = Math.random() * Math.max(0, containerWidth - 110);
+                        randomY = Math.random() * Math.max(0, containerHeight - 110);
+                        
+                        // Check for overlap with existing items
+                        let overlaps = false;
+                        for (const pos of existingPositions) {
+                            const distance = Math.sqrt(
+                                Math.pow(randomX - pos.x, 2) + 
+                                Math.pow(randomY - pos.y, 2)
+                            );
+                            
+                            if (distance < 120) {
+                                overlaps = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!overlaps) {
+                            foundPosition = true;
+                        }
+                        attempts++;
+                    }
+
+                    // If still no position found, use grid-based positioning
+                    if (!foundPosition) {
+                        const itemsPerRow = Math.floor(containerWidth / 120);
+                        const row = Math.floor(existingPositions.length / itemsPerRow);
+                        const col = existingPositions.length % itemsPerRow;
+                        randomX = 10 + col * 120;
+                        randomY = 10 + row * 120;
+                    }
+
+                    item.style.position = "absolute";
+                    item.style.left = `${randomX}px`;
+                    item.style.top = `${randomY}px`;
+
+                    // Store original position
+                    const originalPos = { x: randomX, y: randomY };
+                    materialPositions.set(item.id, originalPos);
+                    materialElements.set(item.id, item);
+
+                    item.ondragstart = (e) => {
+                        draggedItem = { type: "material", value: letter, element: item };
+                        e.dataTransfer.effectAllowed = "copy";
+                    };
+                    item.ondragend = () => {
+                        draggedItem = null;
+                    };
+                    container.appendChild(item);
+                } else {
+                    // Item exists - restore its position if it was moved
+                    if (materialPositions.has(materialId)) {
+                        const originalPos = materialPositions.get(materialId);
+                        // Only restore if position was changed (e.g., after wrong drop)
+                        const currentLeft = parseFloat(item.style.left) || 0;
+                        const currentTop = parseFloat(item.style.top) || 0;
+                        if (Math.abs(currentLeft - originalPos.x) > 5 || Math.abs(currentTop - originalPos.y) > 5) {
+                            item.style.transition = "left 0.3s ease-out, top 0.3s ease-out";
+                            item.style.left = `${originalPos.x}px`;
+                            item.style.top = `${originalPos.y}px`;
+                            setTimeout(() => {
+                                item.style.transition = "";
+                            }, 300);
+                        }
+                    }
+                    // Update reference
+                    materialElements.set(item.id, item);
+                }
+            });
+
+            // Check if all completed
+            if (rows.every(r => r.stage === "completed")) {
+                showCompletion();
+            }
+        }
+
+        // Audio functions
+        function playSound(soundId) {
+            const sound = document.getElementById(soundId);
+            if (sound) {
+                sound.currentTime = 0; // Reset to start
+                sound.play().catch(e => {
+                    // Ignore errors if user hasn't interacted with page yet
+                    console.log("Audio play failed:", e);
+                });
+            }
+        }
+
+        function handleDrop(rowId, rowLetter) {
+            if (!draggedItem) return;
+
+            const isCorrect = draggedItem.value === rowLetter;
+            const row = rows.find(r => r.id === rowId);
+            const stage = row.stage;
+            const taskKey = `${stage}-${rowId}`;
+            const materialId = `material-${stage}-${draggedItem.value}`;
+            const materialElement = materialElements.get(materialId);
+
+            if (isCorrect) {
+                // Play correct sound
+                playSound("correctSound");
+                completedTasks.set(taskKey, true);
+
+                // Update row state
+                if (stage === "seed") {
+                    row.hasSeeds = true;
+                } else if (stage === "watering") {
+                    row.hasWater = true;
+                    // Add watering effect
+                    const garden = document.getElementById(`row-${rowId}`);
+                    const wateringEffect = document.createElement("div");
+                    wateringEffect.className = "watering-effect";
+                    
+                    // Add multiple water drops
+                    for (let i = 0; i < 5; i++) {
+                        const drop = document.createElement("span");
+                        drop.className = "water-drop";
+                        drop.textContent = "💧";
+                        drop.style.left = `${15 + Math.random() * 70}%`;
+                        drop.style.top = `${10 + Math.random() * 30}%`;
+                        drop.style.animationDelay = `${i * 0.1}s`;
+                        wateringEffect.appendChild(drop);
+                    }
+                    
+                    garden.appendChild(wateringEffect);
+                    setTimeout(() => wateringEffect.remove(), 1500);
+                } else if (stage === "fertilizing") {
+                    row.hasFertilizer = true;
+                }
+
+                // Remove the material element from DOM and maps
+                if (materialElement) {
+                    materialElement.remove();
+                    materialElements.delete(materialId);
+                    materialPositions.delete(materialId);
+                    usedMaterials.add(materialId); // Mark as used
+                }
+
+                // Re-render rows to update indicators and effects
+                renderRows();
+
+                // Check if all rows completed this stage
+                const allCompleted = rows.every(r =>
+                    completedTasks.has(`${stage}-${r.id}`)
+                );
+
+                if (allCompleted) {
+                    // Play victory sound when completing a stage
+                    playSound("victorySound");
+                    
+                    // Move to next stage
+                    setTimeout(() => {
+                        rows = rows.map(row => {
+                            const currentStageIdx = STAGES.indexOf(row.stage);
+                            const nextStage = STAGES[Math.min(currentStageIdx + 1, STAGES.length - 1)];
+                            // Preserve all state when moving to next stage
+                            return { 
+                                ...row, 
+                                stage: nextStage
+                            };
+                        });
+
+                        completedTasks.clear();
+                        updateStatus();
+                        renderRows();
+                        renderMaterials();
+                    }, 500);
+                }
+                // Item is already removed, no need to re-render materials
+            } else {
+                // Wrong drop - play wrong sound, blink red and return material
+                playSound("wrongSound");
+                
+                const garden = document.getElementById(`row-${rowId}`);
+                garden.classList.add("error-blink");
+                setTimeout(() => {
+                    garden.classList.remove("error-blink");
+                }, 500);
+
+                // Return material to original position
+                if (materialElement && materialPositions.has(materialId)) {
+                    const originalPos = materialPositions.get(materialId);
+                    // Get current position
+                    const rect = materialElement.getBoundingClientRect();
+                    const containerRect = document.getElementById("materialsContainer").getBoundingClientRect();
+                    const currentX = rect.left - containerRect.left;
+                    const currentY = rect.top - containerRect.top;
+                    
+                    // Animate back
+                    materialElement.style.transition = "left 0.5s ease-out, top 0.5s ease-out";
+                    materialElement.style.left = `${originalPos.x}px`;
+                    materialElement.style.top = `${originalPos.y}px`;
+                }
+            }
+
+            draggedItem = null;
+        }
+
+        function updateStatus() {
+            const stage = rows[0]?.stage || "seed";
+            document.getElementById("status").textContent = STAGE_NAMES[stage];
+        }
+
+        function showCompletion() {
+            const materialsSection = document.getElementById("materialsSection");
+            const completionSection = document.getElementById("completionSection");
+            materialsSection.classList.add("hidden");
+            completionSection.classList.remove("hidden");
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
