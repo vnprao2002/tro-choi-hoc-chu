@@ -81,7 +81,7 @@ export const WORD_POOLS =
     { "text": "dĩa", "image": "/images/cooking/dia.jpg" },
     { "text": "muỗng", "image": "/images/cooking/muong.jpg" },
     { "text": "muôi", "image": "/images/cooking/muoi.jpg" },
-    { "text": "bếp", "image": "/images/cooking/bep.jpg" },
+    { "text": "nhà bếp", "image": "/images/cooking/bep.jpg" },
     { "text": "bếp gas", "image": "/images/cooking/bep-gas.jpg" },
     { "text": "bếp điện", "image": "/images/cooking/bep-dien.jpg" },
     { "text": "lò nướng", "image": "/images/cooking/lo-nuong.jpg" },
@@ -94,9 +94,9 @@ export const WORD_POOLS =
     { "text": "khăn lau", "image": "/images/cooking/khan-lau.jpg" },
     { "text": "rau", "image": "/images/cooking/rau.jpg" },
     { "text": "trái cây", "image": "/images/cooking/trai-cay.jpg" },
-    { "text": "nước", "image": "/images/cooking/nuoc.jpg" },
+    { "text": "vòi nước", "image": "/images/cooking/nuoc.jpg" },
     { "text": "bột mì", "image": "/images/cooking/bot-mi.jpg" },
-    { "text": "công thức", "image": "/images/cooking/cong-thuc.jpg" },
+    { "text": "sách công thức", "image": "/images/cooking/cong-thuc.jpg" },
     { "text": "tạp dề", "image": "/images/cooking/tap-de.jpg" },
     { "text": "gia vị", "image": "/images/cooking/gia-vi.jpg" },
     { "text": "dầu ăn", "image": "/images/cooking/dau-an.jpg" },
@@ -119,12 +119,20 @@ export const WORD_POOLS =
     { "text": "rùa", "image": "/images/animal/rua.jpg" },
     { "text": "ếch", "image": "/images/animal/ech.jpg" },
     { "text": "chim", "image": "/images/animal/chim.jpg" },
-    { "text": "cá", "image": "/images/animal/ca.jpg" }
+    { "text": "cá", "image": "/images/animal/ca.jpg" }, { "text": "gấu", "image": "/images/animal/gau.jpg" },
+    { "text": "hổ", "image": "/images/animal/ho.jpg" },
+    { "text": "sư tử", "image": "/images/animal/su-tu.jpg" },
+    { "text": "nai", "image": "/images/animal/nai.jpg" },
+    { "text": "dê", "image": "/images/animal/de.jpg" },
+    { "text": "chuột", "image": "/images/animal/chuot.jpg" },
+    { "text": "cú mèo", "image": "/images/animal/cu-meo.jpg" },
+    { "text": "chim cánh cụt", "image": "/images/animal/chim-canh-cut.jpg" },
+    { "text": "cá heo", "image": "/images/animal/ca-heo.jpg" },
+    { "text": "nhím", "image": "/images/animal/nhim.jpg" }
   ],
 
   "colors": [
     { "text": "màu đỏ", "image": "/images/colors/do.jpg" },
-    { "text": "màu xanh", "image": "/images/colors/xanh.jpg" },
     { "text": "màu xanh lá", "image": "/images/colors/xanh-la.jpg" },
     { "text": "màu xanh dương", "image": "/images/colors/xanh-duong.jpg" },
     { "text": "màu vàng", "image": "/images/colors/vang.jpg" },
@@ -189,22 +197,21 @@ export const WORD_POOLS =
   ],
 
   "military": [
-  { "text": "bộ đội", "image": "/images/military/bo-doi.jpg" },
-  { "text": "chiến sĩ", "image": "/images/military/chien-si.jpg" },
-  { "text": "quân phục", "image": "/images/military/quan-phuc.jpg" },
-  { "text": "mũ cối", "image": "/images/military/mu-coi.jpg" },
-  { "text": "giày bộ đội", "image": "/images/military/giay-bo-doi.jpg" },
-  { "text": "ba lô", "image": "/images/military/ba-lo.jpg" },
-  { "text": "doanh trại", "image": "/images/military/doanh-trai.jpg" },
-  { "text": "cờ đỏ", "image": "/images/military/co-do.jpg" },
-  { "text": "sao vàng", "image": "/images/military/sao-vang.jpg" },
-  { "text": "đồng phục", "image": "/images/military/dong-phuc.jpg" },
-  { "text": "xe quân đội", "image": "/images/military/xe-quan-doi.jpg" },
-  { "text": "ba-ri-e quân đội", "image": "/images/military/barie.jpg" },
-  { "text": "lều trại", "image": "/images/military/leu-trai.jpg" },
-  { "text": "loa phóng thanh", "image": "/images/military/loa.jpg" },
-  { "text": "sân chào cờ", "image": "/images/military/san-chao-co.jpg" }
-],
+    { "text": "bộ đội", "image": "/images/military/bo-doi.jpg" },
+    { "text": "quân phục", "image": "/images/military/quan-phuc.jpg" },
+    { "text": "mũ cối", "image": "/images/military/mu-coi.jpg" },
+    { "text": "giày bộ đội", "image": "/images/military/giay-bo-doi.jpg" },
+    { "text": "ba lô", "image": "/images/military/ba-lo.jpg" },
+    { "text": "doanh trại", "image": "/images/military/doanh-trai.jpg" },
+    { "text": "cờ đỏ sao vàng", "image": "/images/military/co-do.jpg" },
+    { "text": "xe quân đội", "image": "/images/military/xe-quan-doi.jpg" },
+    { "text": "lều trại", "image": "/images/military/leu-trai.jpg" },
+    { "text": "loa phóng thanh", "image": "/images/military/loa.jpg" },
+    { "text": "thuyền quân đội", "image": "/images/military/thuyen-quan-doi.jpg" },
+    { "text": "hành quân", "image": "/images/military/hanh-quan.jpg" },
+    { "text": "súng trường", "image": "/images/military/sung-truong.jpg" },
+    { "text": "máy bay quân sự", "image": "/images/military/may-bay-quan-su.jpg" }
+  ],
 
   "fruits": [
     { "text": "táo", "image": "/images/food/tap.jpg" },
@@ -250,7 +257,6 @@ export const WORD_POOLS =
     { "text": "ngạc nhiên", "image": "/images/feelings/ngac-nhien.jpg" },
     { "text": "sợ", "image": "/images/feelings/so.jpg" },
     { "text": "mệt", "image": "/images/feelings/met.jpg" },
-    { "text": "hào hứng", "image": "/images/feelings/hao-hung.jpg" },
     { "text": "hạnh phúc", "image": "/images/feelings/hanh-phuc.jpg" },
     { "text": "xấu hổ", "image": "/images/feelings/xau-ho.jpg" }
   ],
@@ -323,7 +329,7 @@ export function getWordPool(category: string | string[]): Word[] {
     })
     return allWords
   }
-  
+
   // Xử lý string như trước
   if (category === "mixed") {
     // Trộn tất cả các chủ đề

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò chơi học chữ cái 🎮</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Nút tùy chỉnh ở góc phải trên -->
+        <button id="settingsBtn" class="settings-btn">⚙️</button>
+        
+        <!-- Panel tùy chỉnh -->
+        <div id="settingsPanel" class="settings-panel">
+            <div class="settings-header">
+                <h2>⚙️ Tùy chỉnh</h2>
+                <button id="closeSettings" class="close-btn">✕</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>Chữ cái mục tiêu:</label>
+                    <select id="targetLetter"></select>
+                </div>
+                <div class="setting-item">
+                    <label>Kiểu chữ:</label>
+                    <select id="caseType">
+                        <option value="lower">chữ thường</option>
+                        <option value="upper">CHỮ HOA</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Chọn chữ cái:</label>
+                    <select id="selectMode">
+                        <option value="all">Chọn hết</option>
+                        <option value="first">Chỉ chọn từ đầu tiên</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <h1>🎯 Trò chơi tìm chữ cái</h1>
+
+        <!-- Hiển thị chữ cái mục tiêu -->
+        <div class="target-display">
+            <span class="target-label">Tìm chữ cái:</span>
+            <span id="targetDisplay" class="target-letter">a</span>
+        </div>
+
+        <div class="game-area">
+            <div id="icon" class="icon">🍎</div>
+            <div id="phrase" class="phrase"></div>
+        </div>
+
+        <div class="controls-bottom">
+            <button id="newWordBtn" class="new-word-btn">🔄 Từ mới</button>
+        </div>
+
+        <div id="message" class="message"></div>
+        <canvas id="fireworks"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

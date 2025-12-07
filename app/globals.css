@@ -124,3 +124,43 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Gradient text effect for answer letters */
+.answer-letter-text {
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: transparent !important;
+}
+
+button:not(:disabled):not(.bg-green-500):not(.bg-red-500):hover .answer-letter-text {
+  background: linear-gradient(90deg, #f59e0b, #f97316, #ef4444, #ec4899, #a855f7, #6366f1, #3b82f6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  background-size: 200% 200% !important;
+  animation: gradient-shift 2s ease infinite !important;
+  color: transparent !important;
+}
+
+button.bg-green-500 .answer-letter-text,
+button.bg-red-500 .answer-letter-text {
+  -webkit-text-fill-color: white !important;
+  background: none !important;
+  color: white !important;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

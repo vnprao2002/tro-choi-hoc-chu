@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import CardGame from "./card-game"
 import GameHeader from "./game-header"
 import ConfettiEffect from "./confetti-effect"
+import VictoryEffects from "./victory-effects"
 import { getWordsWithAnyLetter, generateWordOptions, getWordPool, wordContainsLetter } from "@/lib/word-pools"
 
 interface GameScreenProps {
@@ -27,6 +28,9 @@ export default function GameScreen({ settings, onBackToHome }: GameScreenProps) 
   const [words, setWords] = useState<any[]>([])
   const [usedWords, setUsedWords] = useState<Set<string>>(new Set()) // Track các từ đã dùng
   const confettiRef = useRef<any>(null)
+  const correctSoundRef = useRef<HTMLAudioElement | null>(null)
+  const wrongSoundRef = useRef<HTMLAudioElement | null>(null)
+  const victorySoundRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
     const validWords = getWordsWithAnyLetter(settings.category, settings.selectedLetters)
@@ -171,12 +175,21 @@ export default function GameScreen({ settings, onBackToHome }: GameScreenProps) 
     }
   }
 
+  const handleWrongAnswer = () => {
+    playSound("error")
+  }
+
   const handleNext = () => {
     const newScore = score + 1
 
     if (currentRound >= settings.roundCount) {
       setScore(newScore)
       setGameState("gameOver")
+      playSound("victory")
+      // Trigger victory confetti
+      if (confettiRef.current) {
+        confettiRef.current.triggerVictory()
+      }
     } else {
       setCurrentRound(currentRound + 1)
       setScore(newScore)
@@ -184,21 +197,31 @@ export default function GameScreen({ settings, onBackToHome }: GameScreenProps) 
     }
   }
 
-  const playSound = (type: "success" | "error") => {
+  // Initialize audio elements
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      correctSoundRef.current = new Audio("/games/nong-trai/assets/correct.mp3")
+      wrongSoundRef.current = new Audio("/games/nong-trai/assets/wrong.mp3")
+      victorySoundRef.current = new Audio("/games/nong-trai/assets/victory.mp3")
+      
+      // Set volume
+      if (correctSoundRef.current) correctSoundRef.current.volume = 0.7
+      if (wrongSoundRef.current) wrongSoundRef.current.volume = 0.7
+      if (victorySoundRef.current) victorySoundRef.current.volume = 0.8
+    }
+  }, [])
+
+  const playSound = (type: "success" | "error" | "victory") => {
     try {
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
-      const oscillator = audioContext.createOscillator()
-      const gainNode = audioContext.createGain()
-
-      oscillator.connect(gainNode)
-      gainNode.connect(audioContext.destination)
-
-      if (type === "success") {
-        oscillator.frequency.value = 800
-        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime)
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3)
-        oscillator.start(audioContext.currentTime)
-        oscillator.stop(audioContext.currentTime + 0.3)
+      if (type === "success" && correctSoundRef.current) {
+        correctSoundRef.current.currentTime = 0
+        correctSoundRef.current.play().catch(() => {})
+      } else if (type === "error" && wrongSoundRef.current) {
+        wrongSoundRef.current.currentTime = 0
+        wrongSoundRef.current.play().catch(() => {})
+      } else if (type === "victory" && victorySoundRef.current) {
+        victorySoundRef.current.currentTime = 0
+        victorySoundRef.current.play().catch(() => {})
       }
     } catch (e) {
       // Audio not supported
@@ -206,35 +229,158 @@ export default function GameScreen({ settings, onBackToHome }: GameScreenProps) 
   }
 
   if (gameState === "gameOver") {
+    const percentage = Math.round((score / settings.roundCount) * 100)
+    const isPerfect = score === settings.roundCount
+
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-300 to-blue-300 flex items-center justify-center p-4">
-        <div className="bg-white rounded-3xl shadow-2xl p-12 text-center max-w-md">
-          <h2 className="text-5xl font-black text-blue-600 mb-6">🎉 Tuyệt Vời! 🎉</h2>
-          <p className="text-5xl text-green-600 font-black mb-8">
-            {score}/{settings.roundCount}
+      <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 text-6xl opacity-20 animate-bounce" style={{ animationDuration: '3s' }}>✨</div>
+        <div className="absolute top-20 right-20 text-5xl opacity-20 animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}>⭐</div>
+        <div className="absolute bottom-20 left-20 text-5xl opacity-20 animate-bounce" style={{ animationDuration: '2.8s', animationDelay: '1s' }}>🎈</div>
+        <div className="absolute bottom-10 right-10 text-6xl opacity-20 animate-bounce" style={{ animationDuration: '3.2s', animationDelay: '0.3s' }}>🎨</div>
+        <ConfettiEffect ref={confettiRef} />
+        <VictoryEffects score={score} totalRounds={settings.roundCount} />
+        
+        {/* Sparkle effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-yellow-300 rounded-full animate-ping"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${1 + Math.random()}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-2xl p-12 text-center max-w-md relative z-10 animate-bounce-in">
+          {/* Title with animation */}
+          <div className="mb-6">
+            <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-pink-600 to-purple-600 mb-2 animate-pulse">
+              {isPerfect ? "🏆 Hoàn Hảo! 🏆" : "🎉 Tuyệt Vời! 🎉"}
+            </h2>
+            {isPerfect && (
+              <div className="text-4xl animate-bounce">⭐ ⭐ ⭐</div>
+            )}
+          </div>
+
+          {/* Score with glow effect */}
+          <div className="mb-8 relative">
+            <div className="text-7xl font-black text-green-600 drop-shadow-lg animate-scale-in">
+              {score}/{settings.roundCount}
+            </div>
+            <div className="text-3xl font-bold text-purple-600 mt-2">
+              {percentage}% Đúng
+            </div>
+            {isPerfect && (
+              <div className="mt-4 text-2xl font-bold text-yellow-500 animate-pulse">
+                🎯 Tất cả đều đúng!
+              </div>
+            )}
+          </div>
+
+          {/* Message with animation */}
+          <p className="text-2xl text-gray-700 mb-10 animate-fade-in">
+            {isPerfect 
+              ? "Bạn là người chiến thắng xuất sắc!" 
+              : "Bạn đã hoàn thành trò chơi!"}
           </p>
-          <p className="text-2xl text-gray-700 mb-10">Bạn đã hoàn thành trò chơi!</p>
+
+          {/* Buttons with hover effects */}
           <div className="flex gap-4">
             <Button
               onClick={() => window.location.reload()}
-              className="flex-1 px-6 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-lg"
+              className="flex-1 px-6 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-lg transform hover:scale-105 transition-all shadow-lg hover:shadow-xl"
             >
-              Chơi Lại
+              🔄 Chơi Lại
             </Button>
             <Button
               onClick={onBackToHome}
-              className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-2xl text-lg"
+              className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-2xl text-lg transform hover:scale-105 transition-all shadow-lg hover:shadow-xl"
             >
-              Trang Chủ
+              🏠 Trang Chủ
             </Button>
           </div>
+          
+          {/* Footer */}
+          <div className="mt-8 text-center">
+            <p className="text-sm font-medium text-gray-600">Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa</p>
+          </div>
         </div>
+
+        <style>{`
+          @keyframes bounce-in {
+            0% {
+              transform: scale(0.3);
+              opacity: 0;
+            }
+            50% {
+              transform: scale(1.05);
+            }
+            70% {
+              transform: scale(0.9);
+            }
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+
+          @keyframes scale-in {
+            0% {
+              transform: scale(0);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-bounce-in {
+            animation: bounce-in 0.6s ease-out;
+          }
+
+          .animate-scale-in {
+            animation: scale-in 0.8s ease-out;
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+          }
+
+          .animate-fade-in {
+            animation: fade-in 1s ease-out;
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+          }
+        `}</style>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-300 via-green-300 to-yellow-300 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 overflow-hidden relative">
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-10 text-5xl opacity-15 animate-bounce" style={{ animationDuration: '3s' }}>✨</div>
+      <div className="absolute top-20 right-20 text-4xl opacity-15 animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}>⭐</div>
+      <div className="absolute bottom-20 left-20 text-4xl opacity-15 animate-bounce" style={{ animationDuration: '2.8s', animationDelay: '1s' }}>🎈</div>
+      <div className="absolute bottom-10 right-10 text-5xl opacity-15 animate-bounce" style={{ animationDuration: '3.2s', animationDelay: '0.3s' }}>🎨</div>
       <ConfettiEffect ref={confettiRef} />
 
       <GameHeader 
@@ -252,6 +398,7 @@ export default function GameScreen({ settings, onBackToHome }: GameScreenProps) 
               word={currentWord} 
               targetLetter={currentTargetLetter} 
               onCardClick={handleCorrectAnswer}
+              onWrongAnswer={handleWrongAnswer}
             onNext={handleNext}
             wordOptions={wordOptions}
           />
@@ -259,8 +406,8 @@ export default function GameScreen({ settings, onBackToHome }: GameScreenProps) 
         </div>
         
         {/* Footer */}
-        <div className="text-center py-4 text-sm text-gray-600">
-          Giáo viên Hà Thị Thanh Hăng - Trường Mầm non Hoa Sữa
+        <div className="text-center py-4 text-sm text-gray-600 relative z-10">
+          Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa
         </div>
       </div>
     </div>

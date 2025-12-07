@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò Chơi Hái Chữ Cái</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="settings-screen" class="screen active">
+        <h1>⚙️ Thiết Lập Trò Chơi</h1>
+
+        <div class="setting-group">
+            <h3>Chọn chữ cái cần hái 🎯</h3>
+            <div id="target-select" class="letter-list"></div>
+        </div>
+
+        <div class="setting-group">
+            <h3>Chọn chữ cái trên cây 🍎</h3>
+            <div id="tree-select" class="letter-list"></div>
+        </div>
+
+        <div class="setting-group">
+            <h3>Chọn kiểu chữ 🔤</h3>
+            <div class="case-toggle" role="group" aria-label="Chọn kiểu chữ">
+                <button id="uppercase-btn" class="toggle-btn active" type="button">Chữ hoa</button>
+                <button id="lowercase-btn" class="toggle-btn" type="button">Chữ thường</button>
+            </div>
+        </div>
+
+        <button id="start-btn">Bắt đầu chơi ▶️</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div id="game-container">
+            <div id="sidebar">
+                <h1>🌳 Trò Chơi Hái Chữ Cái 🧺</h1>
+                <p id="instruction">Hãy hái chữ: <span id="target-letter"></span></p>
+                <div id="basket" aria-label="Giỏ đựng trái cây">🧺</div>
+                <div id="scoreboard">
+                    <div class="score-row">Điểm: <span id="score">0</span></div>
+                    <div class="score-actions">
+                        <button id="reset-btn">Chơi lại</button>
+                        <button id="settings-btn">⚙️ Thiết lập</button>
+                    </div>
+                </div>
+            </div>
+            <div id="tree-container">
+                <!-- Thay thế SVG bằng hình ảnh cây thực tế -->
+                <img id="tree-image" src="./public/tree.png" alt="Cây">
+                <div id="fruits-container"></div>
+            </div>
+        </div>
+
+        <canvas id="fireworks"></canvas>
+        <div id="summary-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🎉 Hoàn thành!</h2>
+                <p>Điểm của bạn: <span id="final-score">0</span></p>
+                <div class="modal-actions">
+                    <button id="play-again-btn">Chơi lại</button>
+                    <button id="close-summary-btn">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thêm tất cả file âm thanh từ bạn cung cấp -->
+    <audio id="correct-sound"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/correct-TAA6xmXDnpJmbh0PoBdpt3jv013PZf.mp3"></audio>
+    <audio id="wrong-sound"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/wrong-Saya6eIzJ7tiuFC7jVNOzWXjpsHJwm.mp3"></audio>
+    <audio id="voice-correct"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/voice_correct-suL1V5czbTpSomtI4i4y74ZtYd0u7v.mp3"></audio>
+    <audio id="voice-wrong"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/voice_wrong-uOxy6WH5QSHA9Ct1ycB4ckBrLEigA2.mp3"></audio>
+    <audio id="voice-celebration"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/voice_cel-zBVbxPOFbQRU5V8ZdU9FiNG62zmiAL.mp3"></audio>
+    <audio id="victory-sound" src="./sounds/victory.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

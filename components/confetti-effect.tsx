@@ -7,9 +7,18 @@ const ConfettiEffect = forwardRef((_, ref) => {
   const particlesRef = useRef<any[]>([])
 
   useImperativeHandle(ref, () => ({
-    trigger: () => {
+    trigger: (count = 50) => {
       if (canvasRef.current) {
-        createConfetti()
+        createConfetti(count)
+      }
+    },
+    triggerVictory: () => {
+      if (canvasRef.current) {
+        // Trigger nhiều lần với delay để tạo hiệu ứng liên tục
+        createConfetti(200)
+        setTimeout(() => createConfetti(150), 200)
+        setTimeout(() => createConfetti(100), 400)
+        setTimeout(() => createConfetti(100), 600)
       }
     },
     clear: () => {
@@ -73,23 +82,26 @@ const ConfettiEffect = forwardRef((_, ref) => {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  const createConfetti = () => {
+  const createConfetti = (count = 50, fromTop = false) => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const colors = ["#FF6B6B", "#4ECDC4", "#FFE66D", "#95E1D3", "#F38181"]
+    const colors = ["#FF6B6B", "#4ECDC4", "#FFE66D", "#95E1D3", "#F38181", "#FF9FF3", "#54A0FF", "#5F27CD", "#00D2D3", "#FF9F43"]
 
-    for (let i = 0; i < 50; i++) {
+    const startX = fromTop ? Math.random() * canvas.width : canvas.width / 2
+    const startY = fromTop ? 0 : canvas.height / 2
+
+    for (let i = 0; i < count; i++) {
       particlesRef.current.push({
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        vx: (Math.random() - 0.5) * 10,
-        vy: (Math.random() - 0.5) * 10 - 5,
+        x: startX,
+        y: startY,
+        vx: (Math.random() - 0.5) * (fromTop ? 8 : 10),
+        vy: fromTop ? Math.random() * 5 + 2 : (Math.random() - 0.5) * 10 - 5,
         color: colors[Math.floor(Math.random() * colors.length)],
-        size: Math.random() * 8 + 4,
+        size: Math.random() * 10 + 5,
         rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.3,
-        life: 100,
+        rotationSpeed: (Math.random() - 0.5) * 0.4,
+        life: fromTop ? 150 : 100,
       })
     }
 

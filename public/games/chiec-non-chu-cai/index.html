@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chiếc Nón Kỳ Diệu – Học Chữ Cái</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>🎯 Chiếc Nón Kỳ Diệu – Học Chữ Cái 🎯</h1>
+        <!-- nút mở Tùy chỉnh góc phải -->
+        <button id="settingsToggle" class="settings-toggle" aria-expanded="false">⚙️ Tùy chỉnh</button>
+    </header>
+
+    <main>
+        <div class="wheel-area">
+            <div class="wheel-container">
+                <canvas id="wheel" width="640" height="640"></canvas>
+                <div class="pointer">🔻</div>
+            </div>
+
+            <div class="controls">
+                <button id="spinBtn">🎡 Quay nón</button>
+            </div>
+
+            <h2 id="result">Hãy quay nón nào!</h2>
+        </div>
+
+        <!-- panel tùy chỉnh (ẩn mặc định) -->
+        <aside id="settingsPanel" class="settings-panel hidden" aria-hidden="true">
+            <h3>⚙️ Tùy chỉnh</h3>
+            <label class="checkbox-row">
+                <input type="checkbox" id="uppercaseToggle" />
+                <span>Hiển thị chữ HOA</span>
+            </label>
+
+            <label class="label">Số lần xuất hiện mỗi chữ (1-3):</label>
+            <div class="repeat-control">
+                <input type="number" id="repeatCount" min="1" max="3" value="1" class="repeat-input" />
+                <span class="repeat-hint">Mỗi chữ sẽ xuất hiện số lần này trong vòng quay</span>
+            </div>
+
+            <label class="label">Chọn các chữ cái:</label>
+            <div class="letters-grid" id="lettersGrid"></div>
+            <div class="quick-actions">
+                <button id="selectAll" class="quick-btn">Chọn tất cả</button>
+                <button id="deselectAll" class="quick-btn">Bỏ chọn tất cả</button>
+            </div>
+
+            <div class="settings-actions">
+                <button id="shuffleBtn" class="action-btn shuffle-btn">🔀 Xáo trộn</button>
+                <button id="applyLetters" class="action-btn">Áp dụng</button>
+                <button id="closeSettings" class="action-btn close-btn">Đóng</button>
+            </div>
+
+        </aside>
+    </main>
+
+    <footer>
+        <small>Thiết kế cho trẻ em — dễ dùng, hiệu ứng pháo hoa khi quay trúng!</small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

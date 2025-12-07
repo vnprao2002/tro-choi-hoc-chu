@@ -7,6 +7,7 @@ import LetterCustomizationModal from "./letter-customization-modal"
 
 interface HomeScreenProps {
   onStartGame: (settings: any) => void
+  onBack?: () => void
 }
 
 const STORAGE_KEY = "game-settings"
@@ -18,7 +19,7 @@ const defaultSettings = {
   isUppercase: false,
 }
 
-export default function HomeScreen({ onStartGame }: HomeScreenProps) {
+export default function HomeScreen({ onStartGame, onBack }: HomeScreenProps) {
   const [category, setCategory] = useState<string[]>(defaultSettings.category)
   const [roundCount, setRoundCount] = useState(defaultSettings.roundCount)
   const [showPoolModal, setShowPoolModal] = useState(false)
@@ -72,6 +73,14 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
     { id: "transport", name: "🚗 Giao Thông" },
     { id: "farm", name: "🚜 Nông Nghiệp" },
     { id: "military", name: "🎖️ Bộ Đội" },
+    { id: "fruits", name: "🍎 Trái Cây" },
+    { id: "vegetables", name: "🥕 Rau Củ" },
+    { id: "household", name: "🏠 Đồ Dùng Gia Đình" },
+    { id: "feelings", name: "😊 Cảm Xúc" },
+    { id: "numbers", name: "🔢 Số Đếm" },
+    { id: "toys", name: "🧸 Đồ Chơi" },
+    { id: "shapes", name: "🔷 Hình Dạng" },
+    { id: "emotions", name: "😀 Tình Cảm" },
   ]
 
   const handleLetterCustomization = (letters: string[], uppercase: boolean) => {
@@ -115,15 +124,33 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-200 via-pink-200 to-green-200 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-10 text-6xl opacity-20 animate-bounce" style={{ animationDuration: '3s' }}>✨</div>
+      <div className="absolute top-20 right-20 text-5xl opacity-20 animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}>⭐</div>
+      <div className="absolute bottom-20 left-20 text-5xl opacity-20 animate-bounce" style={{ animationDuration: '2.8s', animationDelay: '1s' }}>🎈</div>
+      <div className="absolute bottom-10 right-10 text-6xl opacity-20 animate-bounce" style={{ animationDuration: '3.2s', animationDelay: '0.3s' }}>🎨</div>
+      
+      {/* Back button */}
+      {onBack && (
+        <div className="absolute top-4 left-4 z-20">
+          <Button
+            onClick={onBack}
+            className="px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all"
+          >
+            ← Quay Lại
+          </Button>
+        </div>
+      )}
+      
       {/* Decorative header */}
-      <div className="text-center mb-12 animate-bounce">
-        <h1 className="text-6xl md:text-7xl font-black text-blue-600 drop-shadow-lg mb-2">🎮 Học Chữ Cái 🎮</h1>
-        <p className="text-2xl text-green-700 font-bold">Trò chơi vui cho bé 5-6 tuổi</p>
+      <div className="text-center mb-12 animate-bounce relative z-10">
+        <h1 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 drop-shadow-lg mb-2">🎮 Học Chữ Cái 🎮</h1>
+        <p className="text-2xl text-purple-600 font-bold">Trò chơi vui cho bé 5-6 tuổi</p>
       </div>
 
       {/* Settings */}
-      <div className="bg-white rounded-3xl shadow-2xl p-10 max-w-2xl w-full space-y-8">
+      <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-10 max-w-2xl w-full space-y-8 relative z-10">
         {/* Category selection */}
         <div>
           <h3 className="text-2xl font-black text-gray-800 mb-2">Chọn Chủ Đề (1-3 chủ đề):</h3>
@@ -231,8 +258,9 @@ export default function HomeScreen({ onStartGame }: HomeScreenProps) {
       </Button>
 
       {/* Footer info */}
-      <div className="mt-12 text-center">
-        <p className="text-lg font-semibold text-gray-700 drop-shadow">Giúp bé học tiếng Việt một cách vui vẻ!</p>
+      <div className="mt-12 text-center relative z-10">
+        <p className="text-lg font-semibold text-gray-700 drop-shadow mb-2">Giúp bé học tiếng Việt một cách vui vẻ!</p>
+        <p className="text-base font-medium text-gray-600">Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa</p>
       </div>
 
       <PoolModal category={category} isOpen={showPoolModal} onClose={() => setShowPoolModal(false)} />

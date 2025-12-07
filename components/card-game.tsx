@@ -12,6 +12,7 @@ interface CardGameProps {
   }
   targetLetter: string // Now passed from parent
   onCardClick: (isCorrect: boolean) => void
+  onWrongAnswer?: () => void
   onNext: () => void
   wordOptions?: {
     text: string
@@ -19,7 +20,7 @@ interface CardGameProps {
   }[] // Options for image selection
 }
 
-export default function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }: CardGameProps) {
+export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, wordOptions }: CardGameProps) {
   const [answers, setAnswers] = useState<string[]>([])
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const [isAnswered, setIsAnswered] = useState(false) // For letter selection mode
@@ -135,6 +136,11 @@ export default function CardGame({ word, targetLetter, onCardClick, onNext, word
         })
       }
 
+      // Call wrong answer handler
+      if (onWrongAnswer) {
+        onWrongAnswer()
+      }
+
       timeoutRef.current = setTimeout(() => {
         // Reset animation khi sai
         if (answerCardsRef.current[cardIndex]) {
@@ -149,7 +155,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onNext, word
         setIsAnswered(false)
         setSelectedAnswer(null)
         timeoutRef.current = null
-      }, 400)
+      }, 1000)
     }
   }
 
@@ -207,6 +213,11 @@ export default function CardGame({ word, targetLetter, onCardClick, onNext, word
         })
       }
 
+      // Call wrong answer handler
+      if (onWrongAnswer) {
+        onWrongAnswer()
+      }
+
       timeoutRef.current = setTimeout(() => {
         // Reset animation khi sai
         if (imageCardsRef.current[cardIndex]) {
@@ -220,7 +231,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onNext, word
         }
         setWrongSelected(false)
         timeoutRef.current = null
-      }, 400)
+      }, 1000)
     }
   }
 
@@ -341,7 +352,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onNext, word
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="bg-white px-4 py-2 text-center">
+                  <div className="bg-white px-4 py-2 text-center word-label">
                     {renderWordWithLetterHighlight(option.text, isSelected && isCorrect)}
                   </div>
                 </button>
@@ -368,25 +379,73 @@ export default function CardGame({ word, targetLetter, onCardClick, onNext, word
       ) : (
         <>
           <div className="grid grid-cols-3 gap-6 md:gap-8 w-full mt-4">
-            {answers.map((answer, index) => (
-              <button
-                key={`${word.text}-${targetLetter}-${answer}-${index}`}
-                ref={(el) => {
-                  if (el) answerCardsRef.current[index] = el
-                }}
-                onClick={() => handleAnswerClick(answer, index)}
-                disabled={isAnswered && selectedAnswer !== answer}
-                className={`p-8 rounded-2xl font-black text-5xl transition-all transform ${selectedAnswer === answer
-                    ? isAnswered && answer === targetLetter
-                      ? "bg-green-500 text-white"
-                      : "bg-red-500 text-white"
-                    : "bg-white text-blue-600 border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"
-                  } ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`}
-              >
-                {answer}
-              </button>
-            ))}
+            {answers.map((answer, index) => {
+              const isSelected = selectedAnswer === answer
+              const isCorrect = isAnswered && answer === targetLetter
+              const showGradient = !isSelected && !isAnswered
+              
+              return (
+                <button
+                  key={`${word.text}-${targetLetter}-${answer}-${index}`}
+                  ref={(el) => {
+                    if (el) answerCardsRef.current[index] = el
+                  }}
+                  onClick={() => handleAnswerClick(answer, index)}
+                  disabled={isAnswered && selectedAnswer !== answer}
+                  className={`p-12 rounded-3xl font-black text-8xl transition-all transform ${isSelected
+                      ? isCorrect
+                        ? "bg-green-500 text-white"
+                        : "bg-red-500 text-white"
+                      : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer answer-button"
+                    } ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`}
+                >
+                  {showGradient ? (
+                    <span 
+                      className="answer-letter-gradient"
+                      style={{
+                        background: 'linear-gradient(90deg, #f59e0b, #f97316, #ef4444, #ec4899, #a855f7, #6366f1, #3b82f6)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        backgroundSize: '200% 200%',
+                        display: 'inline-block',
+                        animation: 'gradient-shift 3s ease infinite',
+                      }}
+                    >
+                      {answer}
+                    </span>
+                  ) : (
+                    <span>{answer}</span>
+                  )}
+                </button>
+              )
+            })}
           </div>
+          <style>{`
+            .answer-letter-gradient {
+              transition: all 0.3s ease;
+            }
+            
+            .word-label {
+              transition: all 0.3s ease;
+            }
+            
+            button:hover .word-label {
+              background: linear-gradient(135deg, #fef3c7, #fde68a, #fcd34d);
+            }
+            
+            @keyframes gradient-shift {
+              0% {
+                background-position: 0% 50%;
+              }
+              50% {
+                background-position: 100% 50%;
+              }
+              100% {
+                background-position: 0% 50%;
+              }
+            }
+          `}</style>
 
           {isAnswered && selectedAnswer !== targetLetter && (
             <div className="text-xl font-bold text-red-600 bg-red-100 px-6 py-3 rounded-xl">Thử lại nhé! 🔄</div>
