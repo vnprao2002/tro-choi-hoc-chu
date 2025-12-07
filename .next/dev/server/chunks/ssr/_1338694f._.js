@@ -1,4 +1,192 @@
 module.exports = [
+"[project]/components/game-menu.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>GameMenu
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+"use client";
+;
+const games = [
+    {
+        id: "letter-game",
+        name: "🎮 Học Chữ Cái",
+        description: "Trò chơi học chữ cái tiếng Việt",
+        icon: "🎮"
+    },
+    {
+        id: "chiec-non-chu-cai",
+        name: "🎩 Chiếc Nón Chữ Cái",
+        description: "Trò chơi với chiếc nón chữ cái",
+        icon: "🎩"
+    },
+    {
+        id: "learn-letters-game",
+        name: "🍎 Hái Trái Cây",
+        description: "Trò chơi hái trái cây thú vị",
+        icon: "🍎"
+    },
+    {
+        id: "nong-trai",
+        name: "🚜 Nông Trại",
+        description: "Trò chơi nông trại vui nhộn",
+        icon: "🚜"
+    },
+    {
+        id: "tim-chu-khac-biet",
+        name: "🔍 Tìm Chữ Khác Biệt",
+        description: "Tìm chữ cái khác biệt",
+        icon: "🔍"
+    },
+    {
+        id: "tim-tu",
+        name: "🔎 Tìm Từ",
+        description: "Trò chơi tìm từ thú vị",
+        icon: "🔎"
+    }
+];
+function GameMenu({ onSelectGame }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 flex flex-col items-center justify-center p-4 relative overflow-hidden",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-10 left-10 text-6xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '3s'
+                },
+                children: "✨"
+            }, void 0, false, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 53,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-20 right-20 text-5xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '2.5s',
+                    animationDelay: '0.5s'
+                },
+                children: "⭐"
+            }, void 0, false, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 54,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-20 left-20 text-5xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '2.8s',
+                    animationDelay: '1s'
+                },
+                children: "🎈"
+            }, void 0, false, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 55,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-10 right-10 text-6xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '3.2s',
+                    animationDelay: '0.3s'
+                },
+                children: "🎨"
+            }, void 0, false, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 56,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "text-center mb-12 relative z-10",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 drop-shadow-lg mb-2",
+                        children: "🎮 Trò Chơi Giáo Dục 🎮"
+                    }, void 0, false, {
+                        fileName: "[project]/components/game-menu.tsx",
+                        lineNumber: 60,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-2xl text-purple-600 font-bold",
+                        children: "Chọn trò chơi bạn muốn chơi"
+                    }, void 0, false, {
+                        fileName: "[project]/components/game-menu.tsx",
+                        lineNumber: 63,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 59,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full relative z-10",
+                children: games.map((game)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: ()=>onSelectGame(game.id),
+                        className: "bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 hover:shadow-3xl transform hover:scale-105 transition-all text-left group",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-6xl mb-4 group-hover:scale-110 transition-transform",
+                                children: game.icon
+                            }, void 0, false, {
+                                fileName: "[project]/components/game-menu.tsx",
+                                lineNumber: 74,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-2xl font-black text-gray-800 mb-2",
+                                children: game.name
+                            }, void 0, false, {
+                                fileName: "[project]/components/game-menu.tsx",
+                                lineNumber: 77,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-600",
+                                children: game.description
+                            }, void 0, false, {
+                                fileName: "[project]/components/game-menu.tsx",
+                                lineNumber: 78,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, game.id, true, {
+                        fileName: "[project]/components/game-menu.tsx",
+                        lineNumber: 69,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 67,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-12 text-center relative z-10",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-base font-medium text-gray-600",
+                    children: "Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa"
+                }, void 0, false, {
+                    fileName: "[project]/components/game-menu.tsx",
+                    lineNumber: 85,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/game-menu.tsx",
+                lineNumber: 84,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/game-menu.tsx",
+        lineNumber: 51,
+        columnNumber: 5
+    }, this);
+}
+}),
 "[project]/lib/utils.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -739,7 +927,7 @@ const WORD_POOLS = {
             "image": "/images/cooking/muoi.jpg"
         },
         {
-            "text": "bếp",
+            "text": "nhà bếp",
             "image": "/images/cooking/bep.jpg"
         },
         {
@@ -791,7 +979,7 @@ const WORD_POOLS = {
             "image": "/images/cooking/trai-cay.jpg"
         },
         {
-            "text": "nước",
+            "text": "vòi nước",
             "image": "/images/cooking/nuoc.jpg"
         },
         {
@@ -799,7 +987,7 @@ const WORD_POOLS = {
             "image": "/images/cooking/bot-mi.jpg"
         },
         {
-            "text": "công thức",
+            "text": "sách công thức",
             "image": "/images/cooking/cong-thuc.jpg"
         },
         {
@@ -883,16 +1071,52 @@ const WORD_POOLS = {
         {
             "text": "cá",
             "image": "/images/animal/ca.jpg"
+        },
+        {
+            "text": "gấu",
+            "image": "/images/animal/gau.jpg"
+        },
+        {
+            "text": "hổ",
+            "image": "/images/animal/ho.jpg"
+        },
+        {
+            "text": "sư tử",
+            "image": "/images/animal/su-tu.jpg"
+        },
+        {
+            "text": "nai",
+            "image": "/images/animal/nai.jpg"
+        },
+        {
+            "text": "dê",
+            "image": "/images/animal/de.jpg"
+        },
+        {
+            "text": "chuột",
+            "image": "/images/animal/chuot.jpg"
+        },
+        {
+            "text": "cú mèo",
+            "image": "/images/animal/cu-meo.jpg"
+        },
+        {
+            "text": "chim cánh cụt",
+            "image": "/images/animal/chim-canh-cut.jpg"
+        },
+        {
+            "text": "cá heo",
+            "image": "/images/animal/ca-heo.jpg"
+        },
+        {
+            "text": "nhím",
+            "image": "/images/animal/nhim.jpg"
         }
     ],
     "colors": [
         {
             "text": "màu đỏ",
             "image": "/images/colors/do.jpg"
-        },
-        {
-            "text": "màu xanh",
-            "image": "/images/colors/xanh.jpg"
         },
         {
             "text": "màu xanh lá",
@@ -1125,10 +1349,6 @@ const WORD_POOLS = {
             "image": "/images/military/bo-doi.jpg"
         },
         {
-            "text": "chiến sĩ",
-            "image": "/images/military/chien-si.jpg"
-        },
-        {
             "text": "quân phục",
             "image": "/images/military/quan-phuc.jpg"
         },
@@ -1149,24 +1369,12 @@ const WORD_POOLS = {
             "image": "/images/military/doanh-trai.jpg"
         },
         {
-            "text": "cờ đỏ",
+            "text": "cờ đỏ sao vàng",
             "image": "/images/military/co-do.jpg"
-        },
-        {
-            "text": "sao vàng",
-            "image": "/images/military/sao-vang.jpg"
-        },
-        {
-            "text": "đồng phục",
-            "image": "/images/military/dong-phuc.jpg"
         },
         {
             "text": "xe quân đội",
             "image": "/images/military/xe-quan-doi.jpg"
-        },
-        {
-            "text": "ba-ri-e quân đội",
-            "image": "/images/military/barie.jpg"
         },
         {
             "text": "lều trại",
@@ -1177,8 +1385,20 @@ const WORD_POOLS = {
             "image": "/images/military/loa.jpg"
         },
         {
-            "text": "sân chào cờ",
-            "image": "/images/military/san-chao-co.jpg"
+            "text": "thuyền quân đội",
+            "image": "/images/military/thuyen-quan-doi.jpg"
+        },
+        {
+            "text": "hành quân",
+            "image": "/images/military/hanh-quan.jpg"
+        },
+        {
+            "text": "súng trường",
+            "image": "/images/military/sung-truong.jpg"
+        },
+        {
+            "text": "máy bay quân sự",
+            "image": "/images/military/may-bay-quan-su.jpg"
         }
     ],
     "fruits": [
@@ -1323,10 +1543,6 @@ const WORD_POOLS = {
         {
             "text": "mệt",
             "image": "/images/feelings/met.jpg"
-        },
-        {
-            "text": "hào hứng",
-            "image": "/images/feelings/hao-hung.jpg"
         },
         {
             "text": "hạnh phúc",
@@ -2030,7 +2246,7 @@ const defaultSettings = {
     ],
     isUppercase: false
 };
-function HomeScreen({ onStartGame }) {
+function HomeScreen({ onStartGame, onBack }) {
     const [category, setCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(defaultSettings.category);
     const [roundCount, setRoundCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(defaultSettings.roundCount);
     const [showPoolModal, setShowPoolModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -2094,6 +2310,38 @@ function HomeScreen({ onStartGame }) {
         {
             id: "military",
             name: "🎖️ Bộ Đội"
+        },
+        {
+            id: "fruits",
+            name: "🍎 Trái Cây"
+        },
+        {
+            id: "vegetables",
+            name: "🥕 Rau Củ"
+        },
+        {
+            id: "household",
+            name: "🏠 Đồ Dùng Gia Đình"
+        },
+        {
+            id: "feelings",
+            name: "😊 Cảm Xúc"
+        },
+        {
+            id: "numbers",
+            name: "🔢 Số Đếm"
+        },
+        {
+            id: "toys",
+            name: "🧸 Đồ Chơi"
+        },
+        {
+            id: "shapes",
+            name: "🔷 Hình Dạng"
+        },
+        {
+            id: "emotions",
+            name: "😀 Tình Cảm"
         }
     ];
     const handleLetterCustomization = (letters, uppercase)=>{
@@ -2140,35 +2388,98 @@ function HomeScreen({ onStartGame }) {
         });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gradient-to-br from-blue-200 via-pink-200 to-green-200 flex flex-col items-center justify-center p-4",
+        className: "min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 flex flex-col items-center justify-center p-4 relative overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "text-center mb-12 animate-bounce",
+                className: "absolute top-10 left-10 text-6xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '3s'
+                },
+                children: "✨"
+            }, void 0, false, {
+                fileName: "[project]/components/home-screen.tsx",
+                lineNumber: 129,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-20 right-20 text-5xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '2.5s',
+                    animationDelay: '0.5s'
+                },
+                children: "⭐"
+            }, void 0, false, {
+                fileName: "[project]/components/home-screen.tsx",
+                lineNumber: 130,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-20 left-20 text-5xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '2.8s',
+                    animationDelay: '1s'
+                },
+                children: "🎈"
+            }, void 0, false, {
+                fileName: "[project]/components/home-screen.tsx",
+                lineNumber: 131,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-10 right-10 text-6xl opacity-20 animate-bounce",
+                style: {
+                    animationDuration: '3.2s',
+                    animationDelay: '0.3s'
+                },
+                children: "🎨"
+            }, void 0, false, {
+                fileName: "[project]/components/home-screen.tsx",
+                lineNumber: 132,
+                columnNumber: 7
+            }, this),
+            onBack && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-4 left-4 z-20",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                    onClick: onBack,
+                    className: "px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all",
+                    children: "← Quay Lại"
+                }, void 0, false, {
+                    fileName: "[project]/components/home-screen.tsx",
+                    lineNumber: 137,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/home-screen.tsx",
+                lineNumber: 136,
+                columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "text-center mb-12 animate-bounce relative z-10",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-6xl md:text-7xl font-black text-blue-600 drop-shadow-lg mb-2",
+                        className: "text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 drop-shadow-lg mb-2",
                         children: "🎮 Học Chữ Cái 🎮"
                     }, void 0, false, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 121,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-2xl text-green-700 font-bold",
+                        className: "text-2xl text-purple-600 font-bold",
                         children: "Trò chơi vui cho bé 5-6 tuổi"
                     }, void 0, false, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 122,
+                        lineNumber: 149,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 120,
+                lineNumber: 147,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-3xl shadow-2xl p-10 max-w-2xl w-full space-y-8",
+                className: "bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-10 max-w-2xl w-full space-y-8 relative z-10",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         children: [
@@ -2177,7 +2488,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "Chọn Chủ Đề (1-3 chủ đề):"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 129,
+                                lineNumber: 156,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2189,7 +2500,7 @@ function HomeScreen({ onStartGame }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 130,
+                                lineNumber: 157,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2205,18 +2516,18 @@ function HomeScreen({ onStartGame }) {
                                         ]
                                     }, cat.id, true, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 160,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 131,
+                                lineNumber: 158,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 128,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2226,7 +2537,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "Số Vòng Chơi:"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 156,
+                                lineNumber: 183,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2245,18 +2556,18 @@ function HomeScreen({ onStartGame }) {
                                         ]
                                     }, count, true, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 159,
+                                        lineNumber: 186,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 157,
+                                lineNumber: 184,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 155,
+                        lineNumber: 182,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2268,7 +2579,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "👀 Xem Danh Sách Từ"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 176,
+                                lineNumber: 203,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2277,13 +2588,13 @@ function HomeScreen({ onStartGame }) {
                                 children: "⚙️ Tùy Chỉnh Chữ Cái"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 182,
+                                lineNumber: 209,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 175,
+                        lineNumber: 202,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2298,7 +2609,7 @@ function HomeScreen({ onStartGame }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 192,
+                                lineNumber: 219,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2310,19 +2621,19 @@ function HomeScreen({ onStartGame }) {
                                         children: cat?.name || catId
                                     }, catId, false, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 224,
                                         columnNumber: 17
                                     }, this);
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 193,
+                                lineNumber: 220,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 191,
+                        lineNumber: 218,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2333,7 +2644,7 @@ function HomeScreen({ onStartGame }) {
                                 children: "Chữ cái được chọn:"
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 207,
+                                lineNumber: 234,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2343,24 +2654,24 @@ function HomeScreen({ onStartGame }) {
                                         children: isUppercase ? letter.toUpperCase() : letter
                                     }, letter, false, {
                                         fileName: "[project]/components/home-screen.tsx",
-                                        lineNumber: 210,
+                                        lineNumber: 237,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/home-screen.tsx",
-                                lineNumber: 208,
+                                lineNumber: 235,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/home-screen.tsx",
-                        lineNumber: 206,
+                        lineNumber: 233,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 126,
+                lineNumber: 153,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2374,22 +2685,32 @@ function HomeScreen({ onStartGame }) {
                 children: "🎮 Bắt Đầu Chơi 🎮"
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 219,
+                lineNumber: 246,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-12 text-center",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-lg font-semibold text-gray-700 drop-shadow",
-                    children: "Giúp bé học tiếng Việt một cách vui vẻ!"
-                }, void 0, false, {
-                    fileName: "[project]/components/home-screen.tsx",
-                    lineNumber: 235,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                className: "mt-12 text-center relative z-10",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-lg font-semibold text-gray-700 drop-shadow mb-2",
+                        children: "Giúp bé học tiếng Việt một cách vui vẻ!"
+                    }, void 0, false, {
+                        fileName: "[project]/components/home-screen.tsx",
+                        lineNumber: 262,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-base font-medium text-gray-600",
+                        children: "Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa"
+                    }, void 0, false, {
+                        fileName: "[project]/components/home-screen.tsx",
+                        lineNumber: 263,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 234,
+                lineNumber: 261,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$pool$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2398,7 +2719,7 @@ function HomeScreen({ onStartGame }) {
                 onClose: ()=>setShowPoolModal(false)
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 238,
+                lineNumber: 266,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$letter$2d$customization$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2408,13 +2729,13 @@ function HomeScreen({ onStartGame }) {
                 category: category
             }, void 0, false, {
                 fileName: "[project]/components/home-screen.tsx",
-                lineNumber: 239,
+                lineNumber: 267,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/home-screen.tsx",
-        lineNumber: 118,
+        lineNumber: 127,
         columnNumber: 5
     }, this);
 }
@@ -2437,7 +2758,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$inde
 ;
 ;
 ;
-function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
+function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, wordOptions }) {
     const [answers, setAnswers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [selectedAnswer, setSelectedAnswer] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isAnswered, setIsAnswered] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false) // For letter selection mode
@@ -2566,6 +2887,10 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                     duration: 0.4
                 });
             }
+            // Call wrong answer handler
+            if (onWrongAnswer) {
+                onWrongAnswer();
+            }
             timeoutRef.current = setTimeout(()=>{
                 // Reset animation khi sai
                 if (answerCardsRef.current[cardIndex]) {
@@ -2580,7 +2905,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                 setIsAnswered(false);
                 setSelectedAnswer(null);
                 timeoutRef.current = null;
-            }, 400);
+            }, 1000);
         }
     };
     const handleImageClick = (selectedOption, cardIndex)=>{
@@ -2637,6 +2962,10 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                     duration: 0.4
                 });
             }
+            // Call wrong answer handler
+            if (onWrongAnswer) {
+                onWrongAnswer();
+            }
             timeoutRef.current = setTimeout(()=>{
                 // Reset animation khi sai
                 if (imageCardsRef.current[cardIndex]) {
@@ -2650,7 +2979,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                 }
                 setWrongSelected(false);
                 timeoutRef.current = null;
-            }, 400);
+            }, 1000);
         }
     };
     const renderWordWithHighlight = ()=>{
@@ -2665,7 +2994,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         children: char
                     }, idx, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 237,
+                        lineNumber: 248,
                         columnNumber: 15
                     }, this);
                 }
@@ -2673,13 +3002,13 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                     children: char
                 }, idx, false, {
                     fileName: "[project]/components/card-game.tsx",
-                    lineNumber: 245,
+                    lineNumber: 256,
                     columnNumber: 18
                 }, this);
             })
         }, void 0, false, {
             fileName: "[project]/components/card-game.tsx",
-            lineNumber: 231,
+            lineNumber: 242,
             columnNumber: 7
         }, this);
     };
@@ -2691,7 +3020,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                 children: wordText
             }, void 0, false, {
                 fileName: "[project]/components/card-game.tsx",
-                lineNumber: 254,
+                lineNumber: 265,
                 columnNumber: 14
             }, this);
         }
@@ -2721,7 +3050,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         children: char
                     }, idx, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 281,
+                        lineNumber: 292,
                         columnNumber: 15
                     }, this);
                 }
@@ -2730,13 +3059,13 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                     children: char
                 }, idx, false, {
                     fileName: "[project]/components/card-game.tsx",
-                    lineNumber: 289,
+                    lineNumber: 300,
                     columnNumber: 18
                 }, this);
             })
         }, void 0, false, {
             fileName: "[project]/components/card-game.tsx",
-            lineNumber: 273,
+            lineNumber: 284,
             columnNumber: 7
         }, this);
     };
@@ -2751,7 +3080,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         children: "Tìm chữ cái:"
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 298,
+                        lineNumber: 309,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2761,18 +3090,18 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                             children: targetLetter
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
-                            lineNumber: 300,
+                            lineNumber: 311,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 299,
+                        lineNumber: 310,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/card-game.tsx",
-                lineNumber: 297,
+                lineNumber: 308,
                 columnNumber: 7
             }, this),
             !useImageMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2787,12 +3116,12 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                             className: "w-full h-full object-cover"
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
-                            lineNumber: 307,
+                            lineNumber: 318,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 306,
+                        lineNumber: 317,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2800,13 +3129,13 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         children: renderWordWithHighlight()
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 310,
+                        lineNumber: 321,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/card-game.tsx",
-                lineNumber: 305,
+                lineNumber: 316,
                 columnNumber: 9
             }, this),
             useImageMode ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -2820,7 +3149,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 318,
+                        lineNumber: 329,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2843,32 +3172,32 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                                             className: "w-full h-full object-cover"
                                         }, void 0, false, {
                                             fileName: "[project]/components/card-game.tsx",
-                                            lineNumber: 338,
+                                            lineNumber: 349,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/card-game.tsx",
-                                        lineNumber: 337,
+                                        lineNumber: 348,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white px-4 py-2 text-center",
+                                        className: "bg-white px-4 py-2 text-center word-label",
                                         children: renderWordWithLetterHighlight(option.text, isSelected && isCorrect)
                                     }, void 0, false, {
                                         fileName: "[project]/components/card-game.tsx",
-                                        lineNumber: 344,
+                                        lineNumber: 355,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, `${word.text}-${targetLetter}-${option.text}-${index}`, true, {
                                 fileName: "[project]/components/card-game.tsx",
-                                lineNumber: 324,
+                                lineNumber: 335,
                                 columnNumber: 17
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 319,
+                        lineNumber: 330,
                         columnNumber: 11
                     }, this),
                     wrongSelected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2876,7 +3205,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         children: "Thử lại nhé! 🔄"
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 353,
+                        lineNumber: 364,
                         columnNumber: 13
                     }, this),
                     allCorrectSelected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2887,12 +3216,12 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                             children: "Tiếp Theo →"
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
-                            lineNumber: 358,
+                            lineNumber: 369,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 357,
+                        lineNumber: 368,
                         columnNumber: 13
                     }, this)
                 ]
@@ -2900,22 +3229,80 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-3 gap-6 md:gap-8 w-full mt-4",
-                        children: answers.map((answer, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        children: answers.map((answer, index)=>{
+                            const isSelected = selectedAnswer === answer;
+                            const isCorrect = isAnswered && answer === targetLetter;
+                            const showGradient = !isSelected && !isAnswered;
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 ref: (el)=>{
                                     if (el) answerCardsRef.current[index] = el;
                                 },
                                 onClick: ()=>handleAnswerClick(answer, index),
                                 disabled: isAnswered && selectedAnswer !== answer,
-                                className: `p-8 rounded-2xl font-black text-5xl transition-all transform ${selectedAnswer === answer ? isAnswered && answer === targetLetter ? "bg-green-500 text-white" : "bg-red-500 text-white" : "bg-white text-blue-600 border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"} ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`,
-                                children: answer
+                                className: `p-12 rounded-3xl font-black text-8xl transition-all transform ${isSelected ? isCorrect ? "bg-green-500 text-white" : "bg-red-500 text-white" : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer answer-button"} ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`,
+                                children: showGradient ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "answer-letter-gradient",
+                                    style: {
+                                        background: 'linear-gradient(90deg, #f59e0b, #f97316, #ef4444, #ec4899, #a855f7, #6366f1, #3b82f6)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        backgroundClip: 'text',
+                                        backgroundSize: '200% 200%',
+                                        display: 'inline-block',
+                                        animation: 'gradient-shift 3s ease infinite'
+                                    },
+                                    children: answer
+                                }, void 0, false, {
+                                    fileName: "[project]/components/card-game.tsx",
+                                    lineNumber: 403,
+                                    columnNumber: 21
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: answer
+                                }, void 0, false, {
+                                    fileName: "[project]/components/card-game.tsx",
+                                    lineNumber: 418,
+                                    columnNumber: 21
+                                }, this)
                             }, `${word.text}-${targetLetter}-${answer}-${index}`, false, {
                                 fileName: "[project]/components/card-game.tsx",
-                                lineNumber: 372,
-                                columnNumber: 15
-                            }, this))
+                                lineNumber: 388,
+                                columnNumber: 17
+                            }, this);
+                        })
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 370,
+                        lineNumber: 381,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                        children: `
+            .answer-letter-gradient {
+              transition: all 0.3s ease;
+            }
+            
+            .word-label {
+              transition: all 0.3s ease;
+            }
+            
+            button:hover .word-label {
+              background: linear-gradient(135deg, #fef3c7, #fde68a, #fcd34d);
+            }
+            
+            @keyframes gradient-shift {
+              0% {
+                background-position: 0% 50%;
+              }
+              50% {
+                background-position: 100% 50%;
+              }
+              100% {
+                background-position: 0% 50%;
+              }
+            }
+          `
+                    }, void 0, false, {
+                        fileName: "[project]/components/card-game.tsx",
+                        lineNumber: 424,
                         columnNumber: 11
                     }, this),
                     isAnswered && selectedAnswer !== targetLetter && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2923,7 +3310,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                         children: "Thử lại nhé! 🔄"
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 392,
+                        lineNumber: 451,
                         columnNumber: 13
                     }, this),
                     isAnswered && selectedAnswer === targetLetter && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2934,12 +3321,12 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
                             children: "Tiếp Theo →"
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
-                            lineNumber: 397,
+                            lineNumber: 456,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 396,
+                        lineNumber: 455,
                         columnNumber: 13
                     }, this)
                 ]
@@ -2947,7 +3334,7 @@ function CardGame({ word, targetLetter, onCardClick, onNext, wordOptions }) {
         ]
     }, void 0, true, {
         fileName: "[project]/components/card-game.tsx",
-        lineNumber: 296,
+        lineNumber: 307,
         columnNumber: 5
     }, this);
 }
@@ -3213,6 +3600,123 @@ const ConfettiEffect = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
 ConfettiEffect.displayName = "ConfettiEffect";
 const __TURBOPACK__default__export__ = ConfettiEffect;
 }),
+"[project]/components/victory-effects.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>VictoryEffects
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+function VictoryEffects({ score, totalRounds }) {
+    const [emojis, setEmojis] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        // Tạo emoji bay lên
+        const emojiList = [
+            "🎉",
+            "🎊",
+            "⭐",
+            "🌟",
+            "✨",
+            "🏆",
+            "👏",
+            "🎈",
+            "🎁",
+            "💫"
+        ];
+        const newEmojis = [];
+        for(let i = 0; i < 20; i++){
+            newEmojis.push({
+                id: i,
+                emoji: emojiList[Math.floor(Math.random() * emojiList.length)],
+                x: Math.random() * 100,
+                y: 100 + Math.random() * 20,
+                vx: (Math.random() - 0.5) * 2,
+                vy: -Math.random() * 3 - 2
+            });
+        }
+        setEmojis(newEmojis);
+        // Play victory sound
+        playVictorySound();
+        // Cleanup after animation
+        const timer = setTimeout(()=>{
+            setEmojis([]);
+        }, 3000);
+        return ()=>clearTimeout(timer);
+    }, []);
+    const playVictorySound = ()=>{
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            // Tạo chuỗi nốt nhạc vui vẻ
+            const notes = [
+                523.25,
+                659.25,
+                783.99,
+                1046.50
+            ] // C, E, G, C (quãng tám)
+            ;
+            notes.forEach((freq, index)=>{
+                setTimeout(()=>{
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    oscillator.frequency.value = freq;
+                    oscillator.type = "sine";
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.3);
+                }, index * 100);
+            });
+        } catch (e) {
+        // Audio not supported
+        }
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                children: `
+        @keyframes floatUp {
+          to {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `
+            }, void 0, false, {
+                fileName: "[project]/components/victory-effects.tsx",
+                lineNumber: 74,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 pointer-events-none z-50 overflow-hidden",
+                children: emojis.map((emoji)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute text-4xl",
+                        style: {
+                            left: `${emoji.x}%`,
+                            top: `${emoji.y}%`,
+                            animation: `floatUp 3s ease-out forwards`
+                        },
+                        children: emoji.emoji
+                    }, emoji.id, false, {
+                        fileName: "[project]/components/victory-effects.tsx",
+                        lineNumber: 84,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/components/victory-effects.tsx",
+                lineNumber: 82,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true);
+}
+}),
 "[project]/components/game-screen.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -3226,8 +3730,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$card$2d$game$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/card-game.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/game-header.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$confetti$2d$effect$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/confetti-effect.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$victory$2d$effects$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/victory-effects.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$word$2d$pools$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/word-pools.ts [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -3246,6 +3752,9 @@ function GameScreen({ settings, onBackToHome }) {
     const [usedWords, setUsedWords] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Set()) // Track các từ đã dùng
     ;
     const confettiRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const correctSoundRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const wrongSoundRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const victorySoundRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const validWords = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$word$2d$pools$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getWordsWithAnyLetter"])(settings.category, settings.selectedLetters);
         if (validWords.length === 0) {
@@ -3373,11 +3882,15 @@ function GameScreen({ settings, onBackToHome }) {
             confettiRef.current.trigger();
         }
     };
+    const handleWrongAnswer = ()=>{
+        playSound("error");
+    };
     const handleNext = ()=>{
         const newScore = score + 1;
         if (currentRound >= settings.roundCount) {
             setScore(newScore);
             setGameState("gameOver");
+            playSound("victory");
             // Trigger victory confetti
             if (confettiRef.current) {
                 confettiRef.current.triggerVictory();
@@ -3388,105 +3901,366 @@ function GameScreen({ settings, onBackToHome }) {
             selectNewWord(words);
         }
     };
+    // Initialize audio elements
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+    }, []);
     const playSound = (type)=>{
         try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            if (type === "success") {
-                oscillator.frequency.value = 800;
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.3);
+            if (type === "success" && correctSoundRef.current) {
+                correctSoundRef.current.currentTime = 0;
+                correctSoundRef.current.play().catch(()=>{});
+            } else if (type === "error" && wrongSoundRef.current) {
+                wrongSoundRef.current.currentTime = 0;
+                wrongSoundRef.current.play().catch(()=>{});
+            } else if (type === "victory" && victorySoundRef.current) {
+                victorySoundRef.current.currentTime = 0;
+                victorySoundRef.current.play().catch(()=>{});
             }
         } catch (e) {
         // Audio not supported
         }
     };
     if (gameState === "gameOver") {
+        const percentage = Math.round(score / settings.roundCount * 100);
+        const isPerfect = score === settings.roundCount;
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "min-h-screen bg-gradient-to-br from-purple-300 via-pink-300 to-blue-300 flex items-center justify-center p-4",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white rounded-3xl shadow-2xl p-12 text-center max-w-md",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-5xl font-black text-blue-600 mb-6",
-                        children: "🎉 Tuyệt Vời! 🎉"
-                    }, void 0, false, {
-                        fileName: "[project]/components/game-screen.tsx",
-                        lineNumber: 217,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-5xl text-green-600 font-black mb-8",
-                        children: [
-                            score,
-                            "/",
-                            settings.roundCount
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/game-screen.tsx",
-                        lineNumber: 218,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-2xl text-gray-700 mb-10",
-                        children: "Bạn đã hoàn thành trò chơi!"
-                    }, void 0, false, {
-                        fileName: "[project]/components/game-screen.tsx",
-                        lineNumber: 221,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex gap-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                onClick: ()=>window.location.reload(),
-                                className: "flex-1 px-6 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-lg",
-                                children: "Chơi Lại"
+            className: "min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 flex items-center justify-center p-4 relative overflow-hidden",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute top-10 left-10 text-6xl opacity-20 animate-bounce",
+                    style: {
+                        animationDuration: '3s'
+                    },
+                    children: "✨"
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 238,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute top-20 right-20 text-5xl opacity-20 animate-bounce",
+                    style: {
+                        animationDuration: '2.5s',
+                        animationDelay: '0.5s'
+                    },
+                    children: "⭐"
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 239,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute bottom-20 left-20 text-5xl opacity-20 animate-bounce",
+                    style: {
+                        animationDuration: '2.8s',
+                        animationDelay: '1s'
+                    },
+                    children: "🎈"
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 240,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute bottom-10 right-10 text-6xl opacity-20 animate-bounce",
+                    style: {
+                        animationDuration: '3.2s',
+                        animationDelay: '0.3s'
+                    },
+                    children: "🎨"
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 241,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$confetti$2d$effect$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    ref: confettiRef
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 242,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$victory$2d$effects$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    score: score,
+                    totalRounds: settings.roundCount
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 243,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-0 pointer-events-none",
+                    children: [
+                        ...Array(30)
+                    ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "absolute w-2 h-2 bg-yellow-300 rounded-full animate-ping",
+                            style: {
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animationDelay: `${Math.random() * 2}s`,
+                                animationDuration: `${1 + Math.random()}s`
+                            }
+                        }, i, false, {
+                            fileName: "[project]/components/game-screen.tsx",
+                            lineNumber: 248,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 246,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "bg-white rounded-3xl shadow-2xl p-12 text-center max-w-md relative z-10 animate-bounce-in",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mb-6",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-pink-600 to-purple-600 mb-2 animate-pulse",
+                                    children: isPerfect ? "🏆 Hoàn Hảo! 🏆" : "🎉 Tuyệt Vời! 🎉"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 264,
+                                    columnNumber: 13
+                                }, this),
+                                isPerfect && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "text-4xl animate-bounce",
+                                    children: "⭐ ⭐ ⭐"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 268,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/game-screen.tsx",
+                            lineNumber: 263,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mb-8 relative",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "text-7xl font-black text-green-600 drop-shadow-lg animate-scale-in",
+                                    children: [
+                                        score,
+                                        "/",
+                                        settings.roundCount
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 274,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "text-3xl font-bold text-purple-600 mt-2",
+                                    children: [
+                                        percentage,
+                                        "% Đúng"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 277,
+                                    columnNumber: 13
+                                }, this),
+                                isPerfect && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "mt-4 text-2xl font-bold text-yellow-500 animate-pulse",
+                                    children: "🎯 Tất cả đều đúng!"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 281,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/game-screen.tsx",
+                            lineNumber: 273,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-2xl text-gray-700 mb-10 animate-fade-in",
+                            children: isPerfect ? "Bạn là người chiến thắng xuất sắc!" : "Bạn đã hoàn thành trò chơi!"
+                        }, void 0, false, {
+                            fileName: "[project]/components/game-screen.tsx",
+                            lineNumber: 288,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex gap-4",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                    onClick: ()=>window.location.reload(),
+                                    className: "flex-1 px-6 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-lg transform hover:scale-105 transition-all shadow-lg hover:shadow-xl",
+                                    children: "🔄 Chơi Lại"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 296,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                    onClick: onBackToHome,
+                                    className: "flex-1 px-6 py-4 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-2xl text-lg transform hover:scale-105 transition-all shadow-lg hover:shadow-xl",
+                                    children: "🏠 Trang Chủ"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/game-screen.tsx",
+                                    lineNumber: 302,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/game-screen.tsx",
+                            lineNumber: 295,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mt-8 text-center",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm font-medium text-gray-600",
+                                children: "Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa"
                             }, void 0, false, {
                                 fileName: "[project]/components/game-screen.tsx",
-                                lineNumber: 223,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                onClick: onBackToHome,
-                                className: "flex-1 px-6 py-4 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-2xl text-lg",
-                                children: "Trang Chủ"
-                            }, void 0, false, {
-                                fileName: "[project]/components/game-screen.tsx",
-                                lineNumber: 229,
+                                lineNumber: 312,
                                 columnNumber: 13
                             }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/game-screen.tsx",
-                        lineNumber: 222,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/game-screen.tsx",
-                lineNumber: 216,
-                columnNumber: 9
-            }, this)
-        }, void 0, false, {
+                        }, void 0, false, {
+                            fileName: "[project]/components/game-screen.tsx",
+                            lineNumber: 311,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 261,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                    children: `
+          @keyframes bounce-in {
+            0% {
+              transform: scale(0.3);
+              opacity: 0;
+            }
+            50% {
+              transform: scale(1.05);
+            }
+            70% {
+              transform: scale(0.9);
+            }
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+
+          @keyframes scale-in {
+            0% {
+              transform: scale(0);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-bounce-in {
+            animation: bounce-in 0.6s ease-out;
+          }
+
+          .animate-scale-in {
+            animation: scale-in 0.8s ease-out;
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+          }
+
+          .animate-fade-in {
+            animation: fade-in 1s ease-out;
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+          }
+        `
+                }, void 0, false, {
+                    fileName: "[project]/components/game-screen.tsx",
+                    lineNumber: 316,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "[project]/components/game-screen.tsx",
-            lineNumber: 215,
+            lineNumber: 236,
             columnNumber: 7
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gradient-to-br from-blue-300 via-green-300 to-yellow-300 overflow-hidden",
+        className: "min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 overflow-hidden relative",
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-10 left-10 text-5xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '3s'
+                },
+                children: "✨"
+            }, void 0, false, {
+                fileName: "[project]/components/game-screen.tsx",
+                lineNumber: 380,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-20 right-20 text-4xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '2.5s',
+                    animationDelay: '0.5s'
+                },
+                children: "⭐"
+            }, void 0, false, {
+                fileName: "[project]/components/game-screen.tsx",
+                lineNumber: 381,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-20 left-20 text-4xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '2.8s',
+                    animationDelay: '1s'
+                },
+                children: "🎈"
+            }, void 0, false, {
+                fileName: "[project]/components/game-screen.tsx",
+                lineNumber: 382,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-10 right-10 text-5xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '3.2s',
+                    animationDelay: '0.3s'
+                },
+                children: "🎨"
+            }, void 0, false, {
+                fileName: "[project]/components/game-screen.tsx",
+                lineNumber: 383,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$confetti$2d$effect$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 ref: confettiRef
             }, void 0, false, {
                 fileName: "[project]/components/game-screen.tsx",
-                lineNumber: 243,
+                lineNumber: 384,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$header$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -3496,7 +4270,7 @@ function GameScreen({ settings, onBackToHome }) {
                 onBack: onBackToHome
             }, void 0, false, {
                 fileName: "[project]/components/game-screen.tsx",
-                lineNumber: 245,
+                lineNumber: 386,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3508,36 +4282,202 @@ function GameScreen({ settings, onBackToHome }) {
                             word: currentWord,
                             targetLetter: currentTargetLetter,
                             onCardClick: handleCorrectAnswer,
+                            onWrongAnswer: handleWrongAnswer,
                             onNext: handleNext,
                             wordOptions: wordOptions
                         }, `${currentWord.text}-${currentTargetLetter}-${currentRound}`, false, {
                             fileName: "[project]/components/game-screen.tsx",
-                            lineNumber: 255,
+                            lineNumber: 396,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/game-screen.tsx",
-                        lineNumber: 253,
+                        lineNumber: 394,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-center py-4 text-sm text-gray-600",
-                        children: "Giáo viên Hà Thị Thanh Hăng - Trường Mầm non Hoa Sữa"
+                        className: "text-center py-4 text-sm text-gray-600 relative z-10",
+                        children: "Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa"
                     }, void 0, false, {
                         fileName: "[project]/components/game-screen.tsx",
-                        lineNumber: 267,
+                        lineNumber: 409,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/game-screen.tsx",
-                lineNumber: 252,
+                lineNumber: 393,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/game-screen.tsx",
-        lineNumber: 242,
+        lineNumber: 378,
+        columnNumber: 5
+    }, this);
+}
+}),
+"[project]/components/html-game-wrapper.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>HtmlGameWrapper
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+function HtmlGameWrapper({ gamePath, gameName, onBack }) {
+    const iframeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        // Đảm bảo iframe load đúng cách
+        if (iframeRef.current) {
+            iframeRef.current.onload = ()=>{
+                console.log("Game loaded successfully");
+            };
+        }
+    }, [
+        gamePath
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "h-screen bg-gradient-to-br from-pink-100 via-purple-100 via-yellow-100 to-blue-100 flex flex-col relative overflow-hidden",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-10 left-10 text-5xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '3s'
+                },
+                children: "✨"
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 28,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute top-20 right-20 text-4xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '2.5s',
+                    animationDelay: '0.5s'
+                },
+                children: "⭐"
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 29,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-20 left-20 text-4xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '2.8s',
+                    animationDelay: '1s'
+                },
+                children: "🎈"
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 30,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-10 right-10 text-5xl opacity-15 animate-bounce",
+                style: {
+                    animationDuration: '3.2s',
+                    animationDelay: '0.3s'
+                },
+                children: "🎨"
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 31,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "relative z-10 p-4 bg-white/80 backdrop-blur-sm flex-shrink-0",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "max-w-7xl mx-auto flex items-center justify-between",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                            onClick: onBack,
+                            className: "px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all",
+                            children: "← Quay Lại"
+                        }, void 0, false, {
+                            fileName: "[project]/components/html-game-wrapper.tsx",
+                            lineNumber: 36,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500",
+                            children: gameName
+                        }, void 0, false, {
+                            fileName: "[project]/components/html-game-wrapper.tsx",
+                            lineNumber: 42,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "w-24"
+                        }, void 0, false, {
+                            fileName: "[project]/components/html-game-wrapper.tsx",
+                            lineNumber: 45,
+                            columnNumber: 11
+                        }, this),
+                        " "
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/html-game-wrapper.tsx",
+                    lineNumber: 35,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 34,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                ref: containerRef,
+                className: "flex-1 relative z-10 p-4 min-h-0",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "w-full h-full bg-white rounded-3xl shadow-2xl overflow-hidden",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
+                        ref: iframeRef,
+                        src: gamePath,
+                        className: "w-full h-full border-0",
+                        title: gameName,
+                        allow: "fullscreen",
+                        style: {
+                            width: '100%',
+                            height: '100%',
+                            display: 'block'
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/components/html-game-wrapper.tsx",
+                        lineNumber: 52,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/html-game-wrapper.tsx",
+                    lineNumber: 51,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 50,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "text-center py-4 text-sm text-gray-600 relative z-10 bg-white/80 backdrop-blur-sm flex-shrink-0",
+                children: "Giáo viên Hà Thị Thanh Hằng - Trường Mầm non Hoa Sữa"
+            }, void 0, false, {
+                fileName: "[project]/components/html-game-wrapper.tsx",
+                lineNumber: 64,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/html-game-wrapper.tsx",
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }
@@ -3551,15 +4491,21 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/game-menu.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$home$2d$screen$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/home-screen.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$screen$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/game-screen.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$html$2d$game$2d$wrapper$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/html-game-wrapper.tsx [app-ssr] (ecmascript)");
 "use client";
 ;
 ;
 ;
 ;
+;
+;
 function Page() {
-    const [gameState, setGameState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("home");
+    const [currentGame, setCurrentGame] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("menu");
+    const [htmlGamePath, setHtmlGamePath] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [htmlGameName, setHtmlGameName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [settings, setSettings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         category: [
             "family"
@@ -3572,36 +4518,89 @@ function Page() {
         ],
         isUppercase: false
     });
-    const handleStartGame = (newSettings)=>{
-        setSettings(newSettings);
-        setGameState("game");
+    const handleSelectGame = (gameId)=>{
+        if (gameId === "letter-game") {
+            setCurrentGame("letter-game-home");
+        } else {
+            // Các trò chơi HTML/CSS/JS
+            const gamePaths = {
+                "chiec-non-chu-cai": {
+                    path: "/games/chiec-non-chu-cai/index.html",
+                    name: "🎩 Chiếc Nón Chữ Cái"
+                },
+                "learn-letters-game": {
+                    path: "/games/learn-letters-game/index.html",
+                    name: "🍎 Hái Trái Cây"
+                },
+                "nong-trai": {
+                    path: "/games/nong-trai/index.html",
+                    name: "🚜 Nông Trại"
+                },
+                "tim-chu-khac-biet": {
+                    path: "/games/tim-chu-khac-biet/index.html",
+                    name: "🔍 Tìm Chữ Khác Biệt"
+                },
+                "tim-tu": {
+                    path: "/games/tim-tu/index.html",
+                    name: "🔎 Tìm Từ"
+                }
+            };
+            const game = gamePaths[gameId];
+            if (game) {
+                setHtmlGamePath(game.path);
+                setHtmlGameName(game.name);
+                setCurrentGame("html-game");
+            }
+        }
     };
-    const handleBackToHome = ()=>{
-        setGameState("home");
+    const handleStartLetterGame = (newSettings)=>{
+        setSettings(newSettings);
+        setCurrentGame("letter-game");
+    };
+    const handleBackToMenu = ()=>{
+        setCurrentGame("menu");
+    };
+    const handleBackToLetterHome = ()=>{
+        setCurrentGame("letter-game-home");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "min-h-screen overflow-hidden",
-        children: gameState === "home" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$home$2d$screen$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-            onStartGame: handleStartGame
+        children: currentGame === "menu" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+            onSelectGame: handleSelectGame
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 28,
+            lineNumber: 75,
             columnNumber: 9
-        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$screen$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-            settings: settings,
-            onBackToHome: handleBackToHome
+        }, this) : currentGame === "letter-game-home" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$home$2d$screen$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+            onStartGame: handleStartLetterGame,
+            onBack: handleBackToMenu
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 30,
+            lineNumber: 77,
+            columnNumber: 9
+        }, this) : currentGame === "letter-game" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$screen$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+            settings: settings,
+            onBackToHome: handleBackToLetterHome
+        }, void 0, false, {
+            fileName: "[project]/app/page.tsx",
+            lineNumber: 79,
+            columnNumber: 9
+        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$html$2d$game$2d$wrapper$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+            gamePath: htmlGamePath,
+            gameName: htmlGameName,
+            onBack: handleBackToMenu
+        }, void 0, false, {
+            fileName: "[project]/app/page.tsx",
+            lineNumber: 81,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 26,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 }
 }),
 ];
 
-//# sourceMappingURL=_ef0a4e2f._.js.map
+//# sourceMappingURL=_1338694f._.js.map
