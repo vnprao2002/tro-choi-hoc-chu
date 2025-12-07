@@ -76,7 +76,7 @@ function drawWheelBase() {
         // phóng to chữ: tỉ lệ với radius - tăng kích thước cho các bé
         const fontSize = Math.round(Math.max(48, radius * 0.15)); // tăng kích thước chữ lên
         ctx.fillStyle = "#213040";
-        ctx.font = `bold ${fontSize}px sans-serif`;
+        ctx.font = `bold ${fontSize}px "Lexend", sans-serif`;
         ctx.textAlign = "right";
         ctx.textBaseline = "middle";
 
@@ -149,7 +149,7 @@ function renderRotated(angleRad) {
         offCtx.rotate(mid);
         const fontSize = Math.round(Math.max(48, radius * 0.15));
         offCtx.fillStyle = "#213040";
-        offCtx.font = `bold ${fontSize}px sans-serif`;
+        offCtx.font = `bold ${fontSize}px "Lexend", sans-serif`;
         offCtx.textAlign = "right";
         offCtx.textBaseline = "middle";
         const text = uppercaseToggle.checked ? letters[i].toUpperCase() : letters[i];
