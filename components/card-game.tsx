@@ -262,7 +262,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
   // Hàm highlight chữ cái targetLetter trong từ khi đã chọn đúng
   const renderWordWithLetterHighlight = (wordText: string, isSelected: boolean) => {
     if (!isSelected) {
-      return <span className="font-bold text-gray-800" style={{ fontSize: '4rem', lineHeight: '1.3', display: 'block', paddingTop: '0.5rem', paddingBottom: '1rem' }}>{wordText}</span>
+      return <span className="font-bold text-gray-800" style={{ fontSize: '4rem', lineHeight: '1.2', display: 'block', paddingTop: '0.5rem', paddingBottom: '0.75rem' }}>{wordText}</span>
     }
 
     const targetLower = targetLetter.toLowerCase()
@@ -281,7 +281,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
     const targetVariantsLower = targetVariants.map(v => v.toLowerCase())
 
     return (
-      <span className="font-bold" style={{ fontSize: '4rem', lineHeight: '1.3', display: 'block', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
+      <span className="font-bold" style={{ fontSize: '4rem', lineHeight: '1.2', display: 'block', paddingTop: '0.5rem', paddingBottom: '0.75rem' }}>
         {wordText.split("").map((char, idx) => {
           const charLower = char.toLowerCase()
           // Kiểm tra xem char có phải là variant của targetLetter không
@@ -304,11 +304,11 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
   }
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center gap-4 pb-16">
+    <div className="w-full max-w-5xl flex flex-col items-center gap-3 pb-12">
       <div className="text-center">
-        <p className="text-3xl text-gray-700 font-bold mb-6">Tìm chữ cái:</p>
-        <div className="inline-block bg-gradient-to-br from-blue-400 to-blue-500 rounded-3xl p-8 shadow-2xl">
-          <span className="text-7xl font-black text-white drop-shadow-lg">{targetLetter}</span>
+        <p className="text-2xl text-gray-700 font-bold mb-4">Tìm chữ cái:</p>
+        <div className="inline-block bg-gradient-to-br from-blue-400 to-blue-500 rounded-3xl p-6 shadow-2xl">
+          <span className="text-6xl font-black text-white drop-shadow-lg">{targetLetter}</span>
         </div>
       </div>
 
@@ -326,8 +326,8 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
 
       {useImageMode ? (
         <>
-          <div className="text-2xl text-gray-700 font-bold mb-4">Chọn hình ảnh có chứa chữ "{targetLetter}":</div>
-          <div className={`grid ${wordOptions!.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-4 md:gap-6 w-full mt-4 items-stretch`}>
+          <div className="text-xl text-gray-700 font-bold mb-3">Chọn hình ảnh có chứa chữ "{targetLetter}":</div>
+          <div className={`grid ${wordOptions!.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-3 md:gap-4 w-full mt-2 items-stretch`}>
             {wordOptions!.map((option, index) => {
               const isCorrect = wordContainsLetter(option.text, targetLetter)
               const isSelected = selectedWords.has(option.text)
@@ -345,15 +345,15 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                       : "border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"
                     } shadow-lg active:scale-95 h-full overflow-visible`}
                 >
-                  <div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-4 flex-shrink-0 rounded-t-2xl">
+                  <div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-4 pb-2 flex-shrink-0 rounded-t-2xl">
                     <img
                       src={option.image || "/placeholder.svg"}
                       alt={option.text}
                       className="w-3/4 h-3/4 object-cover"
                     />
                   </div>
-                  <div className="bg-white px-4 pt-4 pb-6 text-center word-label flex items-start justify-center min-h-[160px] overflow-visible rounded-b-2xl">
-                    <div className="w-full">
+                  <div className="bg-white px-3 pt-1 pb-6 text-center word-label flex flex-col justify-start items-center min-h-[140px] overflow-visible rounded-b-2xl">
+                    <div className="w-full flex-grow flex items-center justify-center pb-4">
                       {renderWordWithLetterHighlight(option.text, isSelected && isCorrect)}
                     </div>
                   </div>
@@ -437,9 +437,9 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
             
             .word-label span {
               font-size: 4rem !important;
-              line-height: 1.3 !important;
+              line-height: 1.2 !important;
               padding-top: 0.5rem !important;
-              padding-bottom: 1rem !important;
+              padding-bottom: 0.75rem !important;
             }
             
             button:hover .word-label {
