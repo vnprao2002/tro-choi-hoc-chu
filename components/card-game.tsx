@@ -174,10 +174,10 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
       if (imageCardsRef.current[cardIndex]) {
         gsap.killTweensOf(imageCardsRef.current[cardIndex])
         gsap.set(imageCardsRef.current[cardIndex], {
-          borderColor: "",
-          borderWidth: "",
+          borderColor: "#93c5fd",
+          borderWidth: "4px",
           x: 0,
-          clearProps: "all"
+          clearProps: "transform"
         })
       }
       return
@@ -224,9 +224,9 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
           gsap.killTweensOf(imageCardsRef.current[cardIndex])
           gsap.set(imageCardsRef.current[cardIndex], {
             x: 0,
-            borderColor: "",
-            borderWidth: "",
-            clearProps: "all"
+            borderColor: "#93c5fd",
+            borderWidth: "4px",
+            clearProps: "transform"
           })
         }
         setWrongSelected(false)
@@ -262,7 +262,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
   // Hàm highlight chữ cái targetLetter trong từ khi đã chọn đúng
   const renderWordWithLetterHighlight = (wordText: string, isSelected: boolean) => {
     if (!isSelected) {
-      return <span className="text-2xl font-bold text-gray-800">{wordText}</span>
+      return <span className="font-bold text-gray-800" style={{ fontSize: '4rem', lineHeight: '1.3', display: 'block', paddingTop: '0.5rem', paddingBottom: '1rem' }}>{wordText}</span>
     }
 
     const targetLower = targetLetter.toLowerCase()
@@ -281,7 +281,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
     const targetVariantsLower = targetVariants.map(v => v.toLowerCase())
 
     return (
-      <span className="text-2xl font-bold">
+      <span className="font-bold" style={{ fontSize: '4rem', lineHeight: '1.3', display: 'block', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
         {wordText.split("").map((char, idx) => {
           const charLower = char.toLowerCase()
           // Kiểm tra xem char có phải là variant của targetLetter không
@@ -304,7 +304,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
   }
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center gap-8">
+    <div className="w-full max-w-5xl flex flex-col items-center gap-4 pb-16">
       <div className="text-center">
         <p className="text-3xl text-gray-700 font-bold mb-6">Tìm chữ cái:</p>
         <div className="inline-block bg-gradient-to-br from-blue-400 to-blue-500 rounded-3xl p-8 shadow-2xl">
@@ -314,7 +314,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
 
       {!useImageMode && (
         <div ref={wordRef} className="flex flex-col items-center gap-6 transform transition-transform">
-          <div className="w-48 h-48 bg-white rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-blue-300">
+          <div className="w-32 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-blue-300">
             <img src={word.image || "/placeholder.svg"} alt={word.text} className="w-full h-full object-cover" />
           </div>
 
@@ -327,7 +327,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
       {useImageMode ? (
         <>
           <div className="text-2xl text-gray-700 font-bold mb-4">Chọn hình ảnh có chứa chữ "{targetLetter}":</div>
-          <div className={`grid ${wordOptions!.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-6 md:gap-8 w-full mt-4`}>
+          <div className={`grid ${wordOptions!.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-4 md:gap-6 w-full mt-4 items-stretch`}>
             {wordOptions!.map((option, index) => {
               const isCorrect = wordContainsLetter(option.text, targetLetter)
               const isSelected = selectedWords.has(option.text)
@@ -338,22 +338,24 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                     if (el) imageCardsRef.current[index] = el
                   }}
                   onClick={() => handleImageClick(option, index)}
-                  className={`relative rounded-2xl overflow-hidden transition-all transform ${isSelected
+                  className={`relative rounded-2xl transition-all transform flex flex-col ${isSelected
                       ? isCorrect
                         ? "border-8 border-green-500 shadow-2xl scale-105"
                         : "border-8 border-red-500"
                       : "border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"
-                    } shadow-lg active:scale-95`}
+                    } shadow-lg active:scale-95 h-full overflow-visible`}
                 >
-                  <div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden">
+                  <div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-4 flex-shrink-0 rounded-t-2xl">
                     <img
                       src={option.image || "/placeholder.svg"}
                       alt={option.text}
-                      className="w-full h-full object-cover"
+                      className="w-3/4 h-3/4 object-cover"
                     />
                   </div>
-                  <div className="bg-white px-4 py-2 text-center word-label">
-                    {renderWordWithLetterHighlight(option.text, isSelected && isCorrect)}
+                  <div className="bg-white px-4 pt-4 pb-6 text-center word-label flex items-start justify-center min-h-[160px] overflow-visible rounded-b-2xl">
+                    <div className="w-full">
+                      {renderWordWithLetterHighlight(option.text, isSelected && isCorrect)}
+                    </div>
                   </div>
                 </button>
               )
@@ -361,14 +363,14 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
           </div>
 
           {wrongSelected && (
-            <div className="text-xl font-bold text-red-600 bg-red-100 px-6 py-3 rounded-xl">Thử lại nhé! 🔄</div>
+            <div className="text-xl font-bold text-red-600 bg-red-100 px-6 py-3 rounded-xl mt-6 mb-4">Thử lại nhé! 🔄</div>
           )}
 
           {allCorrectSelected && (
             <div className="w-full flex justify-end mt-4">
               <button
                 onClick={onNext}
-                className="px-12 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-xl shadow-lg transform hover:scale-105 transition-transform"
+                className="px-12 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-xl shadow-lg transform hover:scale-105 transition-transform fixed bottom-8 right-8 z-50"
               >
                 Tiếp Theo →
               </button>
@@ -392,12 +394,13 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                   }}
                   onClick={() => handleAnswerClick(answer, index)}
                   disabled={isAnswered && selectedAnswer !== answer}
-                  className={`p-12 rounded-3xl font-black text-8xl transition-all transform ${isSelected
+                  className={`p-8 rounded-3xl font-black transition-all transform answer-button ${isSelected
                       ? isCorrect
                         ? "bg-green-500 text-white"
                         : "bg-red-500 text-white"
-                      : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer answer-button"
+                      : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"
                     } ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`}
+                  style={{ fontSize: '20rem', lineHeight: '1' }}
                 >
                   {showGradient ? (
                     <span 
@@ -410,12 +413,14 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                         backgroundSize: '200% 200%',
                         display: 'inline-block',
                         animation: 'gradient-shift 3s ease infinite',
+                        fontSize: '20rem',
+                        lineHeight: '1',
                       }}
                     >
                       {answer}
                     </span>
                   ) : (
-                    <span>{answer}</span>
+                    <span style={{ fontSize: '20rem', lineHeight: '1' }}>{answer}</span>
                   )}
                 </button>
               )
@@ -428,6 +433,13 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
             
             .word-label {
               transition: all 0.3s ease;
+            }
+            
+            .word-label span {
+              font-size: 4rem !important;
+              line-height: 1.3 !important;
+              padding-top: 0.5rem !important;
+              padding-bottom: 1rem !important;
             }
             
             button:hover .word-label {
@@ -444,6 +456,16 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
               100% {
                 background-position: 0% 50%;
               }
+            }
+            
+            .answer-button {
+              font-size: 20rem !important;
+              line-height: 1 !important;
+            }
+            
+            .answer-button span {
+              font-size: 20rem !important;
+              line-height: 1 !important;
             }
           `}</style>
 
