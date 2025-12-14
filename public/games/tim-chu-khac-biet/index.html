@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò Chơi Tìm Chữ Khác Biệt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Tìm Chữ Khác Biệt</h1>
+            <button class="settings-btn" id="settingsBtn">⚙️ Tùy Chỉnh</button>
+        </header>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel" style="display: none;">
+            <div class="settings-content">
+                <h2>Tùy Chỉnh Trò Chơi</h2>
+
+                <div class="settings-group">
+                    <label>📝 Kích thước bảng (hàng x cột):</label>
+                    <div class="size-options">
+                        <button class="size-btn" data-size="3">3x3</button>
+                        <button class="size-btn" data-size="5">5x5</button>
+                        <button class="size-btn" data-size="6">6x6</button>
+                        <button class="size-btn active" data-size="7">7x7</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>🔤 Kiểu chữ:</label>
+                    <div class="case-options">
+                        <button class="case-btn active" data-case="uppercase">Chữ Hoa ✓</button>
+                        <button class="case-btn" data-case="lowercase">Chữ Thường</button>
+                        <button class="case-btn" data-case="mixed">Hỗn Hợp</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>🎯 Số lượng chữ cần tìm:</label>
+                    <div class="count-options">
+                        <button class="count-btn active" data-count="1">1 ✓</button>
+                        <button class="count-btn" data-count="2">2</button>
+                        <button class="count-btn" data-count="3">3</button>
+                        <button class="count-btn" data-count="4">4</button>
+                    </div>
+                </div>
+
+                <!-- Added letter selection section with Vietnamese alphabet picker -->
+                <div class="settings-group">
+                    <label>🔤 Chữ Cần Tìm:</label>
+                    <button class="letter-picker-btn" id="targetLetterBtn">Chọn Chữ Cần Tìm</button>
+                    <div class="selected-letters" id="targetLettersDisplay">
+                        <span class="no-selection">Chưa chọn</span>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>🔤 Chữ Khác (Làm Nhiễu):</label>
+                    <button class="letter-picker-btn" id="distractorLetterBtn">Chọn Chữ Khác</button>
+                    <div class="selected-letters" id="distractorLettersDisplay">
+                        <span class="no-selection">Chưa chọn</span>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <label>🎵 Âm Thanh:</label>
+                    <div class="sound-options">
+                        <button class="sound-btn active" data-sound="on">Bật ✓</button>
+                        <button class="sound-btn" data-sound="off">Tắt</button>
+                    </div>
+                </div>
+
+                <button class="start-btn" id="startBtn">Bắt Đầu Chơi</button>
+            </div>
+        </div>
+
+        <!-- Letter Picker Modal -->
+        <div class="letter-picker-modal" id="letterPickerModal" style="display: none;">
+            <div class="letter-picker-content">
+                <div class="letter-picker-header">
+                    <h3 id="pickerTitle">Chọn Chữ Cần Tìm</h3>
+                    <button class="close-picker-btn" id="closePickerBtn">&times;</button>
+                </div>
+                <div class="alphabet-grid" id="alphabetGrid"></div>
+                <div class="picker-actions">
+                    <button class="cancel-btn" id="cancelPickerBtn">Hủy</button>
+                    <button class="confirm-btn" id="confirmPickerBtn">Xác Nhận</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="picker-overlay" id="pickerOverlay" style="display: none;"></div>
+
+        <!-- Game Area -->
+        <div class="game-area" id="gameArea" style="display: none;">
+            <div class="info-bar">
+                <div class="target-info">
+                    <span>🎯 Tìm chữ:</span>
+                    <span class="target-letter" id="targetLetter"></span>
+                </div>
+                <div class="score-info">
+                    <span>✅ Tìm được: <span id="found">0</span>/<span id="totalToFind">0</span></span>
+                </div>
+                <!-- Added reset button in game area -->
+                <button class="reset-btn" id="resetBtn">🔄 Reset</button>
+            </div>
+
+            <div class="grid" id="grid"></div>
+        </div>
+
+        <!-- Celebration Modal -->
+        <div class="celebration-modal" id="celebrationModal" style="display: none;">
+            <div class="celebration-content">
+                <h2>🎉 Chúc Mừng! 🎉</h2>
+                <p>Bạn đã tìm thấy tất cả các chữ!</p>
+                <!-- Added reset button in celebration modal -->
+                <button class="play-again-btn" id="playAgainBtn">🎮 Chơi Lại</button>
+            </div>
+            <div class="fireworks" id="fireworks"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
