@@ -75,8 +75,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: "Lexend", sans-serif;
+  --font-mono: "Lexend", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -118,8 +118,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: "Lexend", sans-serif;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Lexend", sans-serif !important;
+  }
+  html {
+    font-family: "Lexend", sans-serif;
   }
 }

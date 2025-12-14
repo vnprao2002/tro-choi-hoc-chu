@@ -5,8 +5,9 @@ import GameMenu from "@/components/game-menu"
 import HomeScreen from "@/components/home-screen"
 import GameScreen from "@/components/game-screen"
 import HtmlGameWrapper from "@/components/html-game-wrapper"
+import CountingGame from "@/components/counting-game"
 
-type GameType = "menu" | "letter-game-home" | "letter-game" | "html-game"
+type GameType = "menu" | "letter-game-home" | "letter-game" | "html-game" | "counting-game"
 
 export default function Page() {
   const [currentGame, setCurrentGame] = useState<GameType>("menu")
@@ -22,6 +23,8 @@ export default function Page() {
   const handleSelectGame = (gameId: string) => {
     if (gameId === "letter-game") {
       setCurrentGame("letter-game-home")
+    } else if (gameId === "counting-game") {
+      setCurrentGame("counting-game")
     } else {
       // Các trò chơi HTML/CSS/JS
       const gamePaths: Record<string, { path: string; name: string }> = {
@@ -77,6 +80,8 @@ export default function Page() {
         <HomeScreen onStartGame={handleStartLetterGame} onBack={handleBackToMenu} />
       ) : currentGame === "letter-game" ? (
         <GameScreen settings={settings} onBackToHome={handleBackToLetterHome} />
+      ) : currentGame === "counting-game" ? (
+        <CountingGame onBack={handleBackToMenu} />
       ) : (
         <HtmlGameWrapper
           gamePath={htmlGamePath}

@@ -262,7 +262,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
   // Hàm highlight chữ cái targetLetter trong từ khi đã chọn đúng
   const renderWordWithLetterHighlight = (wordText: string, isSelected: boolean) => {
     if (!isSelected) {
-      return <span className="font-bold text-gray-800" style={{ fontSize: '4rem', lineHeight: '1.2', display: 'block', paddingTop: '0.5rem', paddingBottom: '0.75rem' }}>{wordText}</span>
+      return <span className="font-bold text-gray-800" style={{ fontSize: '4rem', lineHeight: '1.2', display: 'block', paddingTop: '0.5rem', paddingBottom: '0.75rem', fontFamily: 'Lexend, sans-serif' }}>{wordText}</span>
     }
 
     const targetLower = targetLetter.toLowerCase()
@@ -281,7 +281,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
     const targetVariantsLower = targetVariants.map(v => v.toLowerCase())
 
     return (
-      <span className="font-bold" style={{ fontSize: '4rem', lineHeight: '1.2', display: 'block', paddingTop: '0.5rem', paddingBottom: '0.75rem' }}>
+      <span className="font-bold" style={{ fontSize: '4rem', lineHeight: '1.2', display: 'block', paddingTop: '0.5rem', paddingBottom: '0.75rem', fontFamily: 'Lexend, sans-serif' }}>
         {wordText.split("").map((char, idx) => {
           const charLower = char.toLowerCase()
           // Kiểm tra xem char có phải là variant của targetLetter không
@@ -400,7 +400,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                         : "bg-red-500 text-white"
                       : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"
                     } ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`}
-                  style={{ fontSize: '20rem', lineHeight: '1' }}
+                  style={{ fontSize: '20rem', lineHeight: '1', fontFamily: 'Lexend, sans-serif' }}
                 >
                   {showGradient ? (
                     <span 
@@ -420,7 +420,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                       {answer}
                     </span>
                   ) : (
-                    <span style={{ fontSize: '20rem', lineHeight: '1' }}>{answer}</span>
+                    <span style={{ fontSize: '20rem', lineHeight: '1', fontFamily: 'Lexend, sans-serif' }}>{answer}</span>
                   )}
                 </button>
               )

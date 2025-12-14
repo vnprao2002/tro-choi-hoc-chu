@@ -3012,10 +3012,10 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
             if (imageCardsRef.current[cardIndex]) {
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].killTweensOf(imageCardsRef.current[cardIndex]);
                 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].set(imageCardsRef.current[cardIndex], {
-                    borderColor: "",
-                    borderWidth: "",
+                    borderColor: "#93c5fd",
+                    borderWidth: "4px",
                     x: 0,
-                    clearProps: "all"
+                    clearProps: "transform"
                 });
             }
             return;
@@ -3063,9 +3063,9 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].killTweensOf(imageCardsRef.current[cardIndex]);
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].set(imageCardsRef.current[cardIndex], {
                         x: 0,
-                        borderColor: "",
-                        borderWidth: "",
-                        clearProps: "all"
+                        borderColor: "#93c5fd",
+                        borderWidth: "4px",
+                        clearProps: "transform"
                     });
                 }
                 setWrongSelected(false);
@@ -3107,7 +3107,14 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
     const renderWordWithLetterHighlight = (wordText, isSelected)=>{
         if (!isSelected) {
             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                className: "text-2xl font-bold text-gray-800",
+                className: "font-bold text-gray-800",
+                style: {
+                    fontSize: '4rem',
+                    lineHeight: '1.2',
+                    display: 'block',
+                    paddingTop: '0.5rem',
+                    paddingBottom: '0.75rem'
+                },
                 children: wordText
             }, void 0, false, {
                 fileName: "[project]/components/card-game.tsx",
@@ -3130,7 +3137,14 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
         ];
         const targetVariantsLower = targetVariants.map((v)=>v.toLowerCase());
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-            className: "text-2xl font-bold",
+            className: "font-bold",
+            style: {
+                fontSize: '4rem',
+                lineHeight: '1.2',
+                display: 'block',
+                paddingTop: '0.5rem',
+                paddingBottom: '0.75rem'
+            },
             children: wordText.split("").map((char, idx)=>{
                 const charLower = char.toLowerCase();
                 // Kiểm tra xem char có phải là variant của targetLetter không
@@ -3161,13 +3175,13 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
         }, this);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full max-w-5xl flex flex-col items-center gap-8",
+        className: "w-full max-w-5xl flex flex-col items-center gap-3 pb-12",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "text-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-3xl text-gray-700 font-bold mb-6",
+                        className: "text-2xl text-gray-700 font-bold mb-4",
                         children: "Tìm chữ cái:"
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
@@ -3175,9 +3189,9 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "inline-block bg-gradient-to-br from-blue-400 to-blue-500 rounded-3xl p-8 shadow-2xl",
+                        className: "inline-block bg-gradient-to-br from-blue-400 to-blue-500 rounded-3xl p-6 shadow-2xl",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "text-7xl font-black text-white drop-shadow-lg",
+                            className: "text-6xl font-black text-white drop-shadow-lg",
                             children: targetLetter
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
@@ -3200,7 +3214,7 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                 className: "flex flex-col items-center gap-6 transform transition-transform",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-48 h-48 bg-white rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-blue-300",
+                        className: "w-32 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-blue-300",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                             src: word.image || "/placeholder.svg",
                             alt: word.text,
@@ -3232,7 +3246,7 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
             useImageMode ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-2xl text-gray-700 font-bold mb-4",
+                        className: "text-xl text-gray-700 font-bold mb-3",
                         children: [
                             'Chọn hình ảnh có chứa chữ "',
                             targetLetter,
@@ -3244,7 +3258,7 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: `grid ${wordOptions.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-6 md:gap-8 w-full mt-4`,
+                        className: `grid ${wordOptions.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-3 md:gap-4 w-full mt-2 items-stretch`,
                         children: wordOptions.map((option, index)=>{
                             const isCorrect = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$word$2d$pools$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["wordContainsLetter"])(option.text, targetLetter);
                             const isSelected = selectedWords.has(option.text);
@@ -3253,14 +3267,14 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                                     if (el) imageCardsRef.current[index] = el;
                                 },
                                 onClick: ()=>handleImageClick(option, index),
-                                className: `relative rounded-2xl overflow-hidden transition-all transform ${isSelected ? isCorrect ? "border-8 border-green-500 shadow-2xl scale-105" : "border-8 border-red-500" : "border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"} shadow-lg active:scale-95`,
+                                className: `relative rounded-2xl transition-all transform flex flex-col ${isSelected ? isCorrect ? "border-8 border-green-500 shadow-2xl scale-105" : "border-8 border-red-500" : "border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"} shadow-lg active:scale-95 h-full overflow-visible`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-full aspect-square bg-white flex items-center justify-center overflow-hidden",
+                                        className: "w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-4 pb-2 flex-shrink-0 rounded-t-2xl",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                             src: option.image || "/placeholder.svg",
                                             alt: option.text,
-                                            className: "w-full h-full object-cover"
+                                            className: "w-3/4 h-3/4 object-cover"
                                         }, void 0, false, {
                                             fileName: "[project]/components/card-game.tsx",
                                             lineNumber: 349,
@@ -3272,8 +3286,15 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white px-4 py-2 text-center word-label",
-                                        children: renderWordWithLetterHighlight(option.text, isSelected && isCorrect)
+                                        className: "bg-white px-3 pt-1 pb-6 text-center word-label flex flex-col justify-start items-center min-h-[140px] overflow-visible rounded-b-2xl",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-full flex-grow flex items-center justify-center pb-4",
+                                            children: renderWordWithLetterHighlight(option.text, isSelected && isCorrect)
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/card-game.tsx",
+                                            lineNumber: 356,
+                                            columnNumber: 21
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/card-game.tsx",
                                         lineNumber: 355,
@@ -3292,27 +3313,27 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                         columnNumber: 11
                     }, this),
                     wrongSelected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-xl font-bold text-red-600 bg-red-100 px-6 py-3 rounded-xl",
+                        className: "text-xl font-bold text-red-600 bg-red-100 px-6 py-3 rounded-xl mt-6 mb-4",
                         children: "Thử lại nhé! 🔄"
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 364,
+                        lineNumber: 366,
                         columnNumber: 13
                     }, this),
                     allCorrectSelected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "w-full flex justify-end mt-4",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: onNext,
-                            className: "px-12 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-xl shadow-lg transform hover:scale-105 transition-transform",
+                            className: "px-12 py-4 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white font-bold rounded-2xl text-xl shadow-lg transform hover:scale-105 transition-transform fixed bottom-8 right-8 z-50",
                             children: "Tiếp Theo →"
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
-                            lineNumber: 369,
+                            lineNumber: 371,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 368,
+                        lineNumber: 370,
                         columnNumber: 13
                     }, this)
                 ]
@@ -3330,7 +3351,11 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                                 },
                                 onClick: ()=>handleAnswerClick(answer, index),
                                 disabled: isAnswered && selectedAnswer !== answer,
-                                className: `p-12 rounded-3xl font-black text-8xl transition-all transform ${isSelected ? isCorrect ? "bg-green-500 text-white" : "bg-red-500 text-white" : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer answer-button"} ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`,
+                                className: `p-8 rounded-3xl font-black transition-all transform answer-button ${isSelected ? isCorrect ? "bg-green-500 text-white" : "bg-red-500 text-white" : "bg-white border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"} ${isAnswered && selectedAnswer !== answer ? "opacity-50" : ""} shadow-lg active:scale-95`,
+                                style: {
+                                    fontSize: '20rem',
+                                    lineHeight: '1'
+                                },
                                 children: showGradient ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "answer-letter-gradient",
                                     style: {
@@ -3340,29 +3365,35 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                                         backgroundClip: 'text',
                                         backgroundSize: '200% 200%',
                                         display: 'inline-block',
-                                        animation: 'gradient-shift 3s ease infinite'
+                                        animation: 'gradient-shift 3s ease infinite',
+                                        fontSize: '20rem',
+                                        lineHeight: '1'
                                     },
                                     children: answer
                                 }, void 0, false, {
                                     fileName: "[project]/components/card-game.tsx",
-                                    lineNumber: 403,
+                                    lineNumber: 406,
                                     columnNumber: 21
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontSize: '20rem',
+                                        lineHeight: '1'
+                                    },
                                     children: answer
                                 }, void 0, false, {
                                     fileName: "[project]/components/card-game.tsx",
-                                    lineNumber: 418,
+                                    lineNumber: 423,
                                     columnNumber: 21
                                 }, this)
                             }, `${word.text}-${targetLetter}-${answer}-${index}`, false, {
                                 fileName: "[project]/components/card-game.tsx",
-                                lineNumber: 388,
+                                lineNumber: 390,
                                 columnNumber: 17
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 381,
+                        lineNumber: 383,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
@@ -3373,6 +3404,13 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
             
             .word-label {
               transition: all 0.3s ease;
+            }
+            
+            .word-label span {
+              font-size: 4rem !important;
+              line-height: 1.2 !important;
+              padding-top: 0.5rem !important;
+              padding-bottom: 0.75rem !important;
             }
             
             button:hover .word-label {
@@ -3390,10 +3428,20 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                 background-position: 0% 50%;
               }
             }
+            
+            .answer-button {
+              font-size: 20rem !important;
+              line-height: 1 !important;
+            }
+            
+            .answer-button span {
+              font-size: 20rem !important;
+              line-height: 1 !important;
+            }
           `
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 424,
+                        lineNumber: 429,
                         columnNumber: 11
                     }, this),
                     isAnswered && selectedAnswer !== targetLetter && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3401,7 +3449,7 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                         children: "Thử lại nhé! 🔄"
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 451,
+                        lineNumber: 473,
                         columnNumber: 13
                     }, this),
                     isAnswered && selectedAnswer === targetLetter && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3412,12 +3460,12 @@ function CardGame({ word, targetLetter, onCardClick, onWrongAnswer, onNext, word
                             children: "Tiếp Theo →"
                         }, void 0, false, {
                             fileName: "[project]/components/card-game.tsx",
-                            lineNumber: 456,
+                            lineNumber: 478,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/card-game.tsx",
-                        lineNumber: 455,
+                        lineNumber: 477,
                         columnNumber: 13
                     }, this)
                 ]
@@ -4706,6 +4754,8 @@ function Page() {
     const handleSelectGame = (gameId)=>{
         if (gameId === "letter-game") {
             setCurrentGame("letter-game-home");
+        } else if (gameId === "counting-game") {
+            setCurrentGame("counting-game");
         } else {
             // Các trò chơi HTML/CSS/JS
             const gamePaths = {
@@ -4754,21 +4804,21 @@ function Page() {
             onSelectGame: handleSelectGame
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 75,
+            lineNumber: 78,
             columnNumber: 9
         }, this) : currentGame === "letter-game-home" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$home$2d$screen$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             onStartGame: handleStartLetterGame,
             onBack: handleBackToMenu
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 77,
+            lineNumber: 80,
             columnNumber: 9
         }, this) : currentGame === "letter-game" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$game$2d$screen$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             settings: settings,
             onBackToHome: handleBackToLetterHome
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 79,
+            lineNumber: 82,
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$html$2d$game$2d$wrapper$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             gamePath: htmlGamePath,
@@ -4776,12 +4826,12 @@ function Page() {
             onBack: handleBackToMenu
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 81,
+            lineNumber: 84,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 73,
+        lineNumber: 76,
         columnNumber: 5
     }, this);
 }
