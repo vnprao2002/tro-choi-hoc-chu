@@ -26,7 +26,7 @@ export function AnimalJumpText({ text, className = "" }: JumpTextProps) {
             animation: `jump 0.6s ease-in-out ${i * 0.05}s infinite`,
           }}
         >
-          {char}
+          {char === " " ? "\u00a0" : char}
         </span>
       ))}
       <style>{`

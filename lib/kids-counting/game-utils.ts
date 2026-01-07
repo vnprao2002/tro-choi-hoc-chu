@@ -35,7 +35,13 @@ export function getRandomAnimal(animalIds: string[]): string | null {
   return animalIds[Math.floor(Math.random() * animalIds.length)]
 }
 
-export function generateAnimalPositions(count: number, mapWidth: number, mapHeight: number, animalSize = 80) {
+export function generateAnimalPositions(
+  count: number,
+  mapWidth: number,
+  mapHeight: number,
+  animalSize = 80,
+  options?: { minY?: number; maxY?: number },
+) {
   const positions: Array<{ x: number; y: number }> = []
   const minDistance = animalSize + 20
   const maxAttempts = 20
@@ -45,9 +51,12 @@ export function generateAnimalPositions(count: number, mapWidth: number, mapHeig
     let attempts = 0
 
     while (!position && attempts < maxAttempts) {
+      const minY = options?.minY ?? 0
+      const maxY = options?.maxY ?? mapHeight - animalSize
+
       const newPosition = {
         x: Math.random() * (mapWidth - animalSize),
-        y: Math.random() * (mapHeight - animalSize),
+        y: Math.random() * (maxY - minY) + minY,
       }
 
       const isValid = positions.every((pos) => {

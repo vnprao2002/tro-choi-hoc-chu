@@ -6,6 +6,9 @@ export const BACKGROUND_ASSETS = {
   mountain: "/assets/backgrounds/mountain.jpg",
   farm: "/assets/backgrounds/farm.jpg",
   house: "/assets/backgrounds/house.jpg",
+  desert: "/assets/backgrounds/desert.jpg",
+  jungle: "/assets/backgrounds/jungle.jpg",
+  snow: "/assets/backgrounds/snow.jpg",
 } as const
 
 export const ANIMAL_ASSETS = {
