@@ -6,8 +6,9 @@ import HomeScreen from "@/components/home-screen"
 import GameScreen from "@/components/game-screen"
 import HtmlGameWrapper from "@/components/html-game-wrapper"
 import CountingGame from "@/components/counting-game"
+import { AnimalCountingGame } from "@/components/kids-counting/animal-counting-game"
 
-type GameType = "menu" | "letter-game-home" | "letter-game" | "html-game" | "counting-game"
+type GameType = "menu" | "letter-game-home" | "letter-game" | "html-game" | "counting-game" | "animal-counting"
 
 export default function Page() {
   const [currentGame, setCurrentGame] = useState<GameType>("menu")
@@ -25,6 +26,8 @@ export default function Page() {
       setCurrentGame("letter-game-home")
     } else if (gameId === "counting-game") {
       setCurrentGame("counting-game")
+    } else if (gameId === "animal-counting") {
+      setCurrentGame("animal-counting")
     } else {
       // Các trò chơi HTML/CSS/JS
       const gamePaths: Record<string, { path: string; name: string }> = {
@@ -82,6 +85,8 @@ export default function Page() {
         <GameScreen settings={settings} onBackToHome={handleBackToLetterHome} />
       ) : currentGame === "counting-game" ? (
         <CountingGame onBack={handleBackToMenu} />
+      ) : currentGame === "animal-counting" ? (
+        <AnimalCountingGame onBack={handleBackToMenu} />
       ) : (
         <HtmlGameWrapper
           gamePath={htmlGamePath}

@@ -21,6 +21,12 @@ const games = [
     icon: "🔢",
   },
   {
+    id: "animal-counting",
+    name: "🦁 Đếm Động Vật",
+    description: "Đếm số lượng con vật trong môi trường",
+    icon: "🦁",
+  },
+  {
     id: "chiec-non-chu-cai",
     name: "🎩 Chiếc Nón Chữ Cái",
     description: "Trò chơi với chiếc nón chữ cái",
