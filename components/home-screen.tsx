@@ -81,6 +81,7 @@ export default function HomeScreen({ onStartGame, onBack }: HomeScreenProps) {
     { id: "toys", name: "🧸 Đồ Chơi" },
     { id: "shapes", name: "🔷 Hình Dạng" },
     { id: "emotions", name: "😀 Tình Cảm" },
+    { id: "flowers", name: "🌸 Hoa" },
   ]
 
   const handleLetterCustomization = (letters: string[], uppercase: boolean) => {

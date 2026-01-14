@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
+import ImageWithPlaceholder from "./ui/image-with-placeholder"
 
 interface GameCardProps {
   letter: string
@@ -59,7 +60,7 @@ export default function GameCard({ letter, image, isSelected, isCorrect, answere
 
       {/* Card image */}
       <div className="relative w-24 h-24 mb-4">
-        <img src={image || "/placeholder.svg"} alt="card" className="w-full h-full object-cover rounded-lg" />
+        <ImageWithPlaceholder src={image} alt="card" />
       </div>
 
       {/* Feedback indicator */}

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useMemo } from "react"
 import { generateAnswerOptions, wordContainsLetter } from "@/lib/word-pools"
 import { VIETNAMESE_ALPHABET_GROUPS } from "@/lib/vietnamese-alphabet"
 import gsap from "gsap"
+import ImageWithPlaceholder from "@/components/ui/image-with-placeholder"
 
 interface CardGameProps {
   word: {
@@ -315,7 +316,7 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
       {!useImageMode && (
         <div ref={wordRef} className="flex flex-col items-center gap-6 transform transition-transform">
           <div className="w-32 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-blue-300">
-            <img src={word.image || "/placeholder.svg"} alt={word.text} className="w-full h-full object-cover" />
+            <ImageWithPlaceholder src={word.image} alt={word.text} />
           </div>
 
           <div className="font-bold text-green-700 bg-white px-8 py-4 rounded-2xl shadow-lg">
@@ -345,10 +346,11 @@ export default function CardGame({ word, targetLetter, onCardClick, onWrongAnswe
                       : "border-4 border-blue-300 hover:shadow-xl hover:scale-105 cursor-pointer"
                     } shadow-lg active:scale-95 h-full overflow-visible`}
                 >
-                  <div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-4 pb-2 flex-shrink-0 rounded-t-2xl">
-                    <img
-                      src={option.image || "/placeholder.svg"}
+                  <div className="w-full aspect-square bg-white flex-shrink-0 rounded-t-2xl overflow-hidden">
+                    <ImageWithPlaceholder
+                      src={option.image}
                       alt={option.text}
+                      containerClassName="flex items-center justify-center p-4 pb-2"
                       className="w-3/4 h-3/4 object-cover"
                     />
                   </div>

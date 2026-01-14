@@ -1,5 +1,6 @@
 "use client"
 import { getWordPool } from "@/lib/word-pools"
+import ImageWithPlaceholder from "@/components/ui/image-with-placeholder"
 
 interface PoolModalProps {
   category: string | string[]
@@ -31,7 +32,7 @@ export default function PoolModal({ category, isOpen, onClose }: PoolModalProps)
             {words.map((word, idx) => (
               <div key={idx} className="text-center">
                 <div className="w-full aspect-square bg-gray-100 rounded-2xl mb-3 overflow-hidden shadow-md">
-                  <img src={word.image || "/placeholder.svg"} alt={word.text} className="w-full h-full object-cover" />
+                  <ImageWithPlaceholder src={word.image} alt={word.text} />
                 </div>
                 <p className="text-lg font-bold text-gray-800">{word.text}</p>
               </div>
