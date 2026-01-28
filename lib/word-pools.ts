@@ -342,6 +342,9 @@ export const WORD_POOLS =
     { "text": "hoa bướm", "image": "/images/flowers/hoa-buom.jpg" },
     { "text": "hoa tigon", "image": "/images/flowers/hoa-tigon.jpg" },
     { "text": "hoa thanh tú", "image": "/images/flowers/hoa-thanh-tu.jpg" }
+    { "text": "hoa kim anh", "image": "/images/flowers/hoa-kim-anh.jpg" }
+    { "text": "hoa kim ngân", "image": "/images/flowers/hoa-kim-ngan.jpg" }
+    { "text": "ké hoa vàng", "image": "/images/flowers/ké-hoa-vang.jpg" }
   ]
 }
 
